@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+~/.config/herbstluftwm/bash/autostart.sh
+#~/.config/herbstluftwm/python/autostart.py
