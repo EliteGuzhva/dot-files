@@ -159,10 +159,7 @@ export PATH=$PATH:$QT_HOME/bin:$QT_CREATOR_HOME/bin
 export PATH=$PATH:/opt/baidunetdisk
 export PATH=$PATH:$CPP_DEPS_HOME/build/src
 
-# Additional stuff
-export SINK=$(pactl list short | grep RUNNING | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,')
-export VOLUME=$( pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,' )
-
+# Theme
 export GTK_THEME="Adwaita:dark"
 
 # Custom aliases
@@ -171,21 +168,18 @@ alias svn_fix='sudo ip route add 192.168.1.93/32 via 192.168.220.13'
 alias gitlab_fix='sudo ip route add 192.168.1.92/32 via 192.168.220.12'
 alias connect_vpn='sudo /home/nikita/Documents/Scripts/connect_vpn.sh'
 alias mount_ftp='/home/nikita/Documents/Scripts/mount_ftp.sh'
-alias launch_qtcreator='/home/nikita/Documents/Scripts/qt_creator_launcher.sh'
 
 alias baidu_disk='baidunetdisk & disown'
 
 alias storage='df -t ext4 -h'
-
-alias gim='goneovim & disown'
-alias gims='goneovim -S Session.vim & disown'
-
-alias connect_vega='ssh -X prun@192.168.0.221'
-alias connect_nuvo_trm='ssh -X nuvouser@192.168.4.220'
+alias top20='find /home -type f -exec du -h {} + | sort -hr | head -20'
 
 alias allow_access='ngrok tcp --region=eu 22'
 
 alias hc='herbstclient'
+
+alias gim='goneovim & disown'
+alias gims='goneovim -S Session.vim & disown'
 
 alias vim='nvim'
 alias vims='nvim -S Session.vim'
