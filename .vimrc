@@ -7,13 +7,17 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-" set guifont=FiraCode:h12
-set guifont=Meno:h12
 set number
 set relativenumber
 set splitbelow
 set backup
 set undofile
+
+if has('mac')
+    set guifont=Menlo:h12
+else
+    set guifont=FiraCode:h12
+endif
 
 set backupdir=~/.vim/backup//,.
 set directory=~/.vim/swp//,.
