@@ -7,7 +7,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set guifont=FiraCode:h12
+" set guifont=FiraCode:h12
+set guifont=Meno:h12
 set number
 set relativenumber
 set splitbelow
@@ -81,6 +82,8 @@ Plugin 'rking/ag.vim'
 Plugin 'puremourning/vimspector'
 Plugin 'szw/vim-maximizer'
 
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -111,6 +114,11 @@ fun GotoWindow(id)
     call win_gotoid(a:id)
     MaximizerToggle
 endfun
+
+" md preview
+let vim_markdown_preview_github=1
+let vim_markdown_preview_hotkey='<leader>vm'
+let vim_markdown_preview_browser='Safari'
 
 " vimspector
 nnoremap <leader>dd :call vimspector#Launch()<CR>
