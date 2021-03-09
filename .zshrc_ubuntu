@@ -147,6 +147,7 @@ export PATH=$PATH:$CPP_DEPS_HOME/build/src
 
 # Theme
 export GTK_THEME="Adwaita:dark"
+export BAT_THEME="Nord"
 # test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 # Custom aliases
@@ -171,12 +172,25 @@ alias gims='goneovim -S Session.vim & disown'
 alias vim='nvim'
 alias vims='nvim -S Session.vim'
 
+svndiff() {
+    svn diff $1 | bat
+}
+
 alias ss='svn status'
 alias sa='svn add'
 alias sc='svn cl'
 alias sr='svn remove'
-alias sd='svn diff'
+alias sd='svndiff'
 alias sb='svn blame'
+
+gitdiff() {
+    git diff --name-only --diff-filter=d | xargs bat --diff
+}
+
+alias gd='gitdiff'
+
+alias ls='exa'
+alias tldr='tldr -t base16'
 
 # alacritty stuff (needed?)
 # source ~/.bash_completion/alacritty
