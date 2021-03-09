@@ -42,7 +42,7 @@ ZSH_THEME="dracula"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -68,7 +68,7 @@ ZSH_THEME="dracula"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -113,5 +113,18 @@ alias prog_folder="cd ~/Yandex.Disk.localized/Data/Programming"
 alias emulator="/Users/eliteguzhva/Library/Android/sdk/emulator/emulator -avd Pixel_4_API_29i -netdelay none -netspeed full"
 alias tmux="tmux -2"
 alias uber_folder="cd ~/Library/Application\ Support/Übersicht/widgets/"
+alias ls='exa'
+alias tldr='tldr -t base16'
 
+gitdiff() {
+    git diff --name-only --diff-filter=d | xargs bat --diff
+}
+
+alias gd='gitdiff'
+
+export BAT_THEME="Nord"
+
+export EDITOR='vim'
 bindkey -v
+
+eval "$(starship init zsh)"
