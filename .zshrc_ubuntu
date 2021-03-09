@@ -1,0 +1,179 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/home/nikita/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+#===========================================================================================================================================================
+# Personal configurations
+export EDITOR='vim'
+
+# PATHS
+export TOOLS=/opt/tools 
+
+export CUDA_HOME=/usr/local/cuda 
+export CMAKE_HOME=$TOOLS/cmake/cmake-3.17.2-Linux-x86_64 
+export QT_HOME=$TOOLS/qt/Qt5.14.2/5.14.2/gcc_64
+export QT_CREATOR_HOME=$TOOLS/qt/Qt5.14.2/Tools/QtCreator
+export LIBTORCH_HOME=$TOOLS/libtorch
+export TORCHVISION_HOME=$TOOLS/torchvision
+export TORCHSERVER_HOME=$TOOLS/torchserver
+export GOLANG_HOME=/usr/local/go
+export EMACS_HOME=/home/nikita/.emacs.d
+export CARGO_HOME=/home/nikita/.cargo
+export GONEOVIM_HOME=/home/nikita/git_projects/Goneovim
+
+export OPENCV_ROOT_DIR=/usr
+export Python_ROOT_DIR=/usr
+export TRT_ROOT_DIR=/opt/tools/TensorRT-7.0.0.11
+export TRT_OSS_ROOT_DIR=/opt/tools/tensorrt-oss/cmake-build-release/install
+export TRT_COGN_ROOT_DIR=/opt/tools/tensorrt-cognitive-plugins/cmake-build-release/install
+export TRT_SERVER_LIBS_DIR=/opt/tools/libtensorrtserver/cmake-build-release
+
+export CPP_DEPS_HOME=/home/nikita/git_projects/cpp-dependencies
+
+# CPATH
+export CPATH=$CPATH:/usr/include/hdf5/serial
+
+# LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/lib32/:/lib/x86_64-linux-gnu/:/usr/lib/x86_64-linux-gnu/hdf5/serial/:$CUDA_HOME/lib64:/home/nikita/ar13_so:/usr/lib:/usr/local/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TRT_ROOT_DIR/lib:$TRT_OSS_ROOT_DIR/lib:$TRT_COGN_ROOT_DIR/lib:$TRT_SERVER_LIBS_DIR
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBTORCH_HOME/lib/:$TORCHVISION_HOME/install/lib/:$TORCHSERVER_HOME/build/
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QT_HOME/lib:$QT_CREATOR_HOME/lib
+
+# PATH
+export PATH=$GONEOVIM_HOME:$CARGO_HOME/bin:$EMACS_HOME/bin:$CUDA_HOME/bin:$CMAKE_HOME/bin:$GOLANG_HOME/bin:$PATH
+export PATH=$PATH:$QT_HOME/bin:$QT_CREATOR_HOME/bin
+export PATH=$PATH:/opt/baidunetdisk
+export PATH=$PATH:$CPP_DEPS_HOME/build/src
+
+# Theme
+export GTK_THEME="Adwaita:dark"
+
+# Custom aliases
+alias prog_folder='cd /data/disk/Data/Programming'
+alias svn_fix='sudo ip route add 192.168.1.93/32 via 192.168.220.13'
+alias gitlab_fix='sudo ip route add 192.168.1.92/32 via 192.168.220.12'
+alias connect_vpn='sudo /home/nikita/Documents/Scripts/connect_vpn.sh'
+alias mount_ftp='/home/nikita/Documents/Scripts/mount_ftp.sh'
+
+alias baidu_disk='baidunetdisk & disown'
+
+alias storage='df -t ext4 -h'
+alias top20='find /home -type f -exec du -h {} + | sort -hr | head -20'
+
+alias allow_access='ngrok tcp --region=eu 22'
+
+alias hc='herbstclient'
+
+alias gim='goneovim & disown'
+alias gims='goneovim -S Session.vim & disown'
+
+alias vim='nvim'
+alias vims='nvim -S Session.vim'
+
+alias ss='svn status'
+alias sa='svn add'
+alias sc='svn cl'
+alias sr='svn remove'
+alias sd='svn diff'
+alias sb='svn blame'
+
+# alacritty stuff (needed?)
+# source ~/.bash_completion/alacritty
