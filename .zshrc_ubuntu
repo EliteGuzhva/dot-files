@@ -147,6 +147,7 @@ export PATH=$PATH:$CPP_DEPS_HOME/build/src
 
 # Theme
 export GTK_THEME="Adwaita:dark"
+# test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 # Custom aliases
 alias prog_folder='cd /data/disk/Data/Programming'
