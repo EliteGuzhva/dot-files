@@ -104,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 #===========================================================================================================================================================
 # Personal configurations
 export EDITOR='vim'
+bindkey -v
 
 # PATHS
 export TOOLS=/opt/tools 
