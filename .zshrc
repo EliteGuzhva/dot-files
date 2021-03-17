@@ -103,7 +103,6 @@ export PATH="$LLVM_HOME/bin:/Users/eliteguzhva/Development/flutter/bin:/usr/loca
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="mvim -v"
-alias connect_vpn="sudo openvpn --config ~/Documents/Robots_NikitaGuzhva_ctvpn.ovpn"
 alias bs="brew search"
 alias bi="brew install"
 alias bci="brew cask install"
@@ -115,6 +114,10 @@ alias tmux="tmux -2"
 alias uber_folder="cd ~/Library/Application\ Support/Übersicht/widgets/"
 alias ls='exa'
 alias tldr='tldr -t base16'
+
+alias connect_vpn="sudo openvpn --config ~/Documents/Robots_NikitaGuzhva_ctvpn.ovpn & disown"
+alias svn_fix='sudo ip route add 192.168.1.93/32 via 192.168.220.13'
+alias gitlab_fix='sudo ip route add 192.168.1.92/32 via 192.168.220.12'
 
 gitdiff() {
     git diff --name-only --diff-filter=d | xargs bat --diff
