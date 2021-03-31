@@ -42,7 +42,7 @@ ZSH_THEME="dracula"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -68,7 +68,7 @@ ZSH_THEME="dracula"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,7 +103,6 @@ export PATH="$LLVM_HOME/bin:/Users/eliteguzhva/Development/flutter/bin:/usr/loca
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="mvim -v"
-alias connect_vpn="sudo openvpn --config ~/Documents/Robots_NikitaGuzhva_ctvpn.ovpn"
 alias bs="brew search"
 alias bi="brew install"
 alias bci="brew cask install"
@@ -113,5 +112,22 @@ alias prog_folder="cd ~/Yandex.Disk.localized/Data/Programming"
 alias emulator="/Users/eliteguzhva/Library/Android/sdk/emulator/emulator -avd Pixel_4_API_29i -netdelay none -netspeed full"
 alias tmux="tmux -2"
 alias uber_folder="cd ~/Library/Application\ Support/Übersicht/widgets/"
+alias ls='exa'
+alias tldr='tldr -t base16'
 
+alias connect_vpn="sudo openvpn --config ~/Documents/Robots_NikitaGuzhva_ctvpn.ovpn & disown"
+alias svn_fix='sudo ip route add 192.168.1.93/32 via 192.168.220.13'
+alias gitlab_fix='sudo ip route add 192.168.1.92/32 via 192.168.220.12'
+
+gitdiff() {
+    git diff --name-only --diff-filter=d | xargs bat --diff
+}
+
+alias gd='gitdiff'
+
+export BAT_THEME="Nord"
+
+export EDITOR='vim'
 bindkey -v
+
+eval "$(starship init zsh)"
