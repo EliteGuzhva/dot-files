@@ -31,7 +31,7 @@ autocmd Filetype py setlocal tabstop=4 shiftwidth=4
 " Key bindings
 :let mapleader = "\<Space>"
 " :nnoremap <leader>t :wincmd b \| bel terminal<CR>
-:nnoremap <leader>t :botright split term://bash<CR>
+:nnoremap <leader>t :botright split term://zsh<CR>
 :tnoremap <Esc> <C-\><C-n>
 :nmap <silent> <leader>so :so %<CR>
 :nmap <silent> <leader>v :vsp ~/.vimrc<CR>
@@ -219,7 +219,7 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 " Apply AutoFix to problem on the current line.
-nmap <leader>gf  <Plug>(coc-fix-current)
+nnoremap <leader>gf :CocFix<CR>
 
 " lsp-cxx
 let g:lsp_cxx_hl_use_text_props = 1

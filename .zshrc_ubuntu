@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -15,7 +15,8 @@ export ZSH="/home/nikita/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME=""
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -137,7 +138,7 @@ export CPATH=$CPATH:/usr/include/hdf5/serial
 export LD_LIBRARY_PATH=/usr/lib32/:/lib/x86_64-linux-gnu/:/usr/lib/x86_64-linux-gnu/hdf5/serial/:$CUDA_HOME/lib64:/home/nikita/ar13_so:/usr/lib:/usr/local/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TRT_ROOT_DIR/lib:$TRT_OSS_ROOT_DIR/lib:$TRT_COGN_ROOT_DIR/lib:$TRT_SERVER_LIBS_DIR
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBTORCH_HOME/lib/:$TORCHVISION_HOME/install/lib/:$TORCHSERVER_HOME/build/
-# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QT_HOME/lib:$QT_CREATOR_HOME/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QT_HOME/lib:$QT_CREATOR_HOME/lib
 
 # PATH
 export PATH=$GONEOVIM_HOME:$CARGO_HOME/bin:$EMACS_HOME/bin:$CUDA_HOME/bin:$CMAKE_HOME/bin:$GOLANG_HOME/bin:$PATH
@@ -196,4 +197,6 @@ alias tldr='tldr -t base16'
 # source ~/.bash_completion/alacritty
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval "$(starship init zsh)"

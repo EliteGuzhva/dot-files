@@ -10,8 +10,9 @@ hc emit_hook reload
 
 # set background color
 # xsetroot -solid '#404040'
-# feh --bg-scale /home/nikita/Pictures/Wallpapers/01.jpg
-feh --bg-scale /home/nikita/git_projects/nord-backgrounds/operating-systems/1920x1080/ubuntu.png
+# feh --bg-scale /home/nikita/git_projects/nord-backgrounds/operating-systems/1920x1080/ubuntu.png
+# feh --bg-scale /home/nikita/git_projects/wallpapers/0116.jpg
+feh --bg-scale /home/nikita/git_projects/wallpapers/0158.jpg
 
 # set compton for opacity
 # compton -b --config /home/nikita/.config/compton/compton.conf
