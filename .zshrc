@@ -95,9 +95,10 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 
 LLVM_HOME="/usr/local/opt/llvm"
+FLUTTER_HOME="/Users/eliteguzhva/Development/flutter"
 
-export PATH="$LLVM_HOME/bin:/Users/eliteguzhva/Development/flutter/bin:/usr/local/opt/openjdk/bin:/usr/local/opt/opencv@3/bin:/usr/local/Cellar:$PATH"
-# export TERM=alacritty
+export PATH="$LLVM_HOME/bin:/usr/local/opt/openjdk/bin:/usr/local/opt/opencv@3/bin:/usr/local/Cellar:$PATH"
+export PATH="$PATH:$FLUTTER_HOME/bin"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -116,8 +117,8 @@ alias ls='exa'
 alias tldr='tldr -t base16'
 
 alias connect_vpn="sudo openvpn --config ~/Documents/Robots_NikitaGuzhva_ctvpn.ovpn & disown"
-alias svn_fix='sudo ip route add 192.168.1.93/32 via 192.168.220.13'
-alias gitlab_fix='sudo ip route add 192.168.1.92/32 via 192.168.220.12'
+alias svn_fix='sudo route add -net 192.168.1.93/32 192.168.220.13'
+alias gitlab_fix='sudo route add -net 192.168.1.92/32 192.168.220.12'
 
 gitdiff() {
     git diff --name-only --diff-filter=d | xargs bat --diff
