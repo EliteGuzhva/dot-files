@@ -63,6 +63,7 @@ Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'ayu-theme/ayu-vim'
 Plugin 'adrian5/oceanic-next-vim'
+Plugin 'morhetz/gruvbox'
 
 Plugin 'itchyny/lightline.vim'
 Plugin 'preservim/nerdtree'
@@ -85,6 +86,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'puremourning/vimspector'
 Plugin 'szw/vim-maximizer'
+Plugin 'tpope/vim-fugitive'
 
 Plugin 'JamshedVesuna/vim-markdown-preview'
 
@@ -105,6 +107,11 @@ colorscheme nord
 
 highlight Visual cterm=reverse ctermbg=NONE
 
+" vim-fugitive
+nmap <leader>vs :G<CR>
+nmap <leader>vf :diffget //2<CR>
+nmap <leader>vj :diffget //3<CR>
+
 " lightline
 set laststatus=2
 set noshowmode
@@ -122,7 +129,11 @@ endfun
 " md preview
 let vim_markdown_preview_github=1
 let vim_markdown_preview_hotkey='<leader>vm'
-let vim_markdown_preview_browser='Safari'
+if has('mac')
+    let vim_markdown_preview_browser='Safari'
+else
+    let vim_markdown_preview_browser='Firefox'
+endif
 
 " vimspector
 nnoremap <leader>dd :call vimspector#Launch()<CR>

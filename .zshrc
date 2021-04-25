@@ -100,6 +100,8 @@ FLUTTER_HOME="/Users/eliteguzhva/Development/flutter"
 export PATH="$LLVM_HOME/bin:/usr/local/opt/openjdk/bin:/usr/local/opt/opencv@3/bin:/usr/local/Cellar:$PATH"
 export PATH="$PATH:$FLUTTER_HOME/bin"
 
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
