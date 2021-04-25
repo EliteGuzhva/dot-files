@@ -82,11 +82,11 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'tpope/vim-commentary'
-Plugin 'kien/ctrlp.vim'
-Plugin 'rking/ag.vim'
 Plugin 'puremourning/vimspector'
 Plugin 'szw/vim-maximizer'
 Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 Plugin 'JamshedVesuna/vim-markdown-preview'
 
@@ -105,7 +105,17 @@ set background=dark
 
 colorscheme nord
 
+" set termguicolors
+" let g:gruvbox_contrast_dark="medium"
+" colorscheme gruvbox
+
 highlight Visual cterm=reverse ctermbg=NONE
+
+" fzf
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+nmap <C-p> :Files<CR>
+nmap <C-i> :BLines<CR>
 
 " vim-fugitive
 nmap <leader>vs :G<CR>
@@ -150,13 +160,6 @@ nnoremap <leader>dgc :call GotoWindow(g:vimspector_session_windows.code)<CR>
 nnoremap <leader>dgv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
 nnoremap <leader>dgs :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
 nnoremap <leader>dgo :call GotoWindow(g:vimspector_session_windows.output)<CR>
-
-" CtrlP and Ag
-if executable('ag')
-	set grepprg=ag\ --nogroup\ --nocolor\ --column
-	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-	let g:ctrlp_use_caching = 0
-endif
 
 " goyo
 map <C-f> :Goyo<CR>
