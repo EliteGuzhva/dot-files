@@ -50,6 +50,9 @@ map + <C-W>+
 map < <C-W><
 map > <C-W>>
 
+" polyglot
+let g:polyglot_disabled = ['cpp-modern']
+
 " Vundle
 set nocompatible
 filetype off
@@ -71,6 +74,8 @@ Plugin 'preservim/nerdtree'
 Plugin 'neoclide/coc.nvim'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'jackguo380/vim-lsp-cxx-highlight'
+
+Plugin 'sheerun/vim-polyglot'
 
 Plugin 'rust-lang/rust.vim'
 Plugin 'dart-lang/dart-vim-plugin'
