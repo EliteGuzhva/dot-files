@@ -52,6 +52,7 @@ map > <C-W>>
 
 " polyglot
 let g:polyglot_disabled = ['cpp-modern']
+let g:python_highlight_all = 1
 
 " Vundle
 set nocompatible
