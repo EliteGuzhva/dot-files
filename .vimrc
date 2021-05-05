@@ -49,6 +49,7 @@ map - <C-W>-
 map + <C-W>+
 map < <C-W><
 map > <C-W>>
+nmap r :redo<CR>
 
 " polyglot
 let g:polyglot_disabled = ['cpp-modern']
@@ -75,6 +76,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'neoclide/coc.nvim'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'jackguo380/vim-lsp-cxx-highlight'
+Plugin 'cdelledonne/vim-cmake'
 
 Plugin 'sheerun/vim-polyglot'
 
