@@ -126,6 +126,11 @@ let $FZF_DEFAULT_OPTS='--reverse'
 nmap <C-p> :Files<CR>
 nmap <C-i> :BLines<CR>
 
+" gitgutter
+nmap <leader>ghp <Plug>(GitGutterPreviewHunk)
+nmap <leader>ghu <Plug>(GitGutterUndoHunk)
+nmap <leader>ghs <Plug>(GitGutterStageHunk)
+
 " vim-fugitive
 nmap <leader>vs :G<CR>
 nmap <leader>vf :diffget //2<CR>
