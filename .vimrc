@@ -93,6 +93,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'puremourning/vimspector'
 Plugin 'szw/vim-maximizer'
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
