@@ -29,22 +29,20 @@ autocmd Filetype hpp setlocal tabstop=2 shiftwidth=2
 autocmd Filetype py setlocal tabstop=4 shiftwidth=4
 
 " Key bindings
-:let mapleader = "\<Space>"
-" :nnoremap <leader>t :wincmd b \| bel terminal<CR>
-:nnoremap <leader>t :botright split term://zsh<CR>
-:tnoremap <Esc> <C-\><C-n>
-:nmap <silent> <leader>so :so %<CR>
-:nmap <silent> <leader>v :vsp ~/.vimrc<CR>
-:nmap <leader>s :w<CR>
-:nmap <leader>q :q<CR>
-:nmap <leader>a :wq<CR>
-:nmap <leader>x :xa<CR>
-:nmap <leader>r :setl rnu!<CR> 
-:nmap <leader>w :mks!<CR>
-:nmap <leader>h :wincmd h<CR>
-:nmap <leader>j :wincmd j<CR>
-:nmap <leader>k :wincmd k<CR>
-:nmap <leader>l :wincmd l<CR>
+let mapleader = "\<Space>"
+
+" nnoremap <leader>t :wincmd b \| bel terminal<CR>
+nnoremap <leader>t :botright split term://zsh<CR>
+tnoremap <Esc> <C-\><C-n>
+
+nmap <leader>so :so %<CR>
+nmap <leader>q :q<CR>
+nmap <leader>x :xa<CR>
+nmap <leader>ss :mks!<CR>
+nmap <leader>h :wincmd h<CR>
+nmap <leader>j :wincmd j<CR>
+nmap <leader>k :wincmd k<CR>
+nmap <leader>l :wincmd l<CR>
 map - <C-W>-
 map + <C-W>+
 map < <C-W><
@@ -123,13 +121,17 @@ highlight Visual cterm=reverse ctermbg=NONE
 " fzf
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPTS='--reverse'
-nmap <C-p> :Files<CR>
-nmap <C-i> :BLines<CR>
+nmap <leader>ff :Files<CR>
+nmap <leader>fl :BLines<CR>
+nmap <leader>fs :Rg<CR>
+nmap <leader>fh :History<CR>
 
 " gitgutter
-nmap <leader>ghp <Plug>(GitGutterPreviewHunk)
-nmap <leader>ghu <Plug>(GitGutterUndoHunk)
-nmap <leader>ghs <Plug>(GitGutterStageHunk)
+nmap <leader>v[ <Plug>(GitGutterPrevHunk)
+nmap <leader>v] <Plug>(GitGutterNextHunk)
+nmap <leader>vp <Plug>(GitGutterPreviewHunk)
+nmap <leader>vu <Plug>(GitGutterUndoHunk)
+nmap <leader>va <Plug>(GitGutterStageHunk)
 
 " vim-fugitive
 nmap <leader>vs :G<CR>
@@ -184,8 +186,8 @@ let g:limelight_conceal_ctermfg = 'gray'
 
 " nerdtree
 " autocmd vimenter * NERDTree
-map <C-n> :NERDTreeToggle<CR>
-nnoremap <silent> <leader>pv :NERDTreeFind<CR>
+nnoremap <silent> <leader>pt :NERDTreeToggle<CR>
+nnoremap <silent> <leader>pf :NERDTreeFind<CR>
 
 " YCM
 " nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
@@ -217,7 +219,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 
 " GoTo code navigation.
 nmap <silent> <leader>gd <Plug>(coc-definition)
-nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gtd <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
 
@@ -227,7 +229,7 @@ nmap <silent> <leader>g[ <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>g] <Plug>(coc-diagnostic-next)
 
 " Show documentation in preview window.
-nnoremap <silent> <leader>vd :call <SID>show_documentation()<CR>
+nnoremap <silent> <leader>gs :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -240,11 +242,11 @@ function! s:show_documentation()
 endfunction
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>gn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>gc <Plug>(coc-format-selected)
+nmap <leader>gc <Plug>(coc-format-selected)
 
 " Apply AutoFix to problem on the current line.
 nnoremap <leader>gf :CocFix<CR>
