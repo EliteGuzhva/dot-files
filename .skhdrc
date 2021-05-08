@@ -103,6 +103,14 @@ shift + cmd - n : yabai -m space --create && \
                   yabai -m window --space "${index}" && \
                   yabai -m space --focus "${index}"
 
+shift + alt - n : yabai -m space --create && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                  yabai -m space --focus "${index}"
+
+shift + alt - d : yabai -m query --spaces --display \
+                  | jq -re 'map(select(."native-fullscreen" == 0)) | length > 1' \
+                  && yabai -m space --destroy
+
 # fast focus desktop
 alt - 1 : yabai -m space --focus 1
 alt - 2 : yabai -m space --focus 2
