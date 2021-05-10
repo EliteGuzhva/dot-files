@@ -86,6 +86,7 @@ Plugin 'fisadev/FixedTaskList.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'tpope/vim-commentary'
 Plugin 'puremourning/vimspector'
@@ -118,6 +119,16 @@ colorscheme nord
 
 highlight Visual cterm=reverse ctermbg=NONE
 
+" lightline
+set laststatus=2
+set noshowmode
+let g:lightline = {
+    \ "colorscheme": "nord",
+    \ }
+
+" vim-easy-align
+au FileType markdown vmap <leader>gc :EasyAlign*<Bar><Enter>
+
 " fzf
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPTS='--reverse'
@@ -137,13 +148,6 @@ nmap <leader>va <Plug>(GitGutterStageHunk)
 nmap <leader>vs :G<CR>
 nmap <leader>vf :diffget //2<CR>
 nmap <leader>vj :diffget //3<CR>
-
-" lightline
-set laststatus=2
-set noshowmode
-let g:lightline = {
-    \ "colorscheme": "nord",
-    \ }
 
 " maximizer
 nnoremap <leader>m :MaximizerToggle!<CR>
