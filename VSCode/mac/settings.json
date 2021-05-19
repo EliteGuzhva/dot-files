@@ -24,6 +24,10 @@
             "after": ["<C-w>", "k"]
         },
         {
+            "before": ["<leader>", "q"],
+            "commands": ["workbench.action.closeActiveEditor"]
+        },
+        {
             "before": ["<leader>", "x"],
             "commands": ["workbench.action.closeAllEditors"]
         },
@@ -31,7 +35,6 @@
             "before": ["<leader>", "p", "t"],
             "commands": ["workbench.action.toggleSidebarVisibility"]
         },
-        // CoC
         {
             "before": ["<leader>", "g", "s"],
             "commands": ["editor.action.showHover"]
@@ -56,7 +59,6 @@
             "before": ["<leader>", "g", "n"],
             "commands": ["editor.action.rename"]
         },
-        // Version control
         {
             "before": ["<leader>", "v", "s"],
             "commands": ["workbench.view.scm"]

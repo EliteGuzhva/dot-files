@@ -169,8 +169,11 @@ alias allow_access='ngrok tcp --region=eu 22'
 
 alias hc='herbstclient'
 
-alias gim='goneovim & disown'
-alias gims='goneovim -S Session.vim & disown'
+gim() {
+    LD_LIBRARY_PATH=; goneovim $@ & disown
+}
+
+alias gims='gim -S Session.vim'
 
 alias vim='nvim'
 alias vims='nvim -S Session.vim'

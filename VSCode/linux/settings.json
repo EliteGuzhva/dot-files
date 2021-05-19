@@ -1,0 +1,99 @@
+{
+    "cmake.configureOnOpen": true,
+    "cmake.debugConfig": {
+      "cwd": "${command:cmake.launchTargetDirectory}"  
+    },
+    "cmake.cmakePath": "/opt/tools/cmake/cmake-3.17.2-Linux-x86_64/bin/cmake",
+    "C_Cpp.default.cppStandard": "c++17",
+    "python.pythonPath": "/usr/bin/python3",
+    "python.languageServer": "Pylance",
+    "python.showStartPage": false,
+    "editor.fontSize": 15,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "window.zoomLevel": 0,
+    "editor.cursorBlinking": "solid",
+    "editor.minimap.enabled": false,
+    "window.menuBarVisibility": "toggle",
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<leader>", "h"],
+            "after": ["<C-w>", "h"]
+        },
+        {
+            "before": ["<leader>", "l"],
+            "after": ["<C-w>", "l"]
+        },
+        {
+            "before": ["<leader>", "j"],
+            "after": ["<C-w>", "j"]
+        },
+        {
+            "before": ["<leader>", "k"],
+            "after": ["<C-w>", "k"]
+        },
+        {
+            "before": ["<leader>", "q"],
+            "commands": ["workbench.action.closeActiveEditor"]
+        },
+        {
+            "before": ["<leader>", "x"],
+            "commands": ["workbench.action.closeAllEditors"]
+        },
+        {
+            "before": ["<leader>", "p", "t"],
+            "commands": ["workbench.action.toggleSidebarVisibility"]
+        },
+        {
+            "before": ["<leader>", "g", "s"],
+            "commands": ["editor.action.showHover"]
+        },
+        {
+            "before": ["<leader>", "g", "d"],
+            "commands": ["editor.action.revealDefinition"]
+        },
+        {
+            "before": ["<leader>", "g", "r"],
+            "commands": ["editor.action.goToReferences"]
+        },
+        {
+            "before": ["<leader>", "g", "f"],
+            "commands": ["editor.action.quickFix"]
+        },
+        {
+            "before": ["<leader>", "g", "c"],
+            "commands": ["editor.action.formatDocument"]
+        },
+        {
+            "before": ["<leader>", "g", "n"],
+            "commands": ["editor.action.rename"]
+        },
+        {
+            "before": ["<leader>", "v", "s"],
+            "commands": ["workbench.view.scm"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "t"],
+            "commands": ["workbench.action.terminal.toggleTerminal"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [">"],
+            "commands": ["editor.action.indentLines"]
+        },
+        {
+            "before": ["<"],
+            "commands": ["editor.action.outdentLines"]
+        },
+        {
+            "before": ["<leader>", "g", "c"],
+            "commands": ["editor.action.formatSelection"]
+        }
+    ],
+    "workbench.colorTheme": "Ayu Light",
+    "workbench.startupEditor": "none"
+}
