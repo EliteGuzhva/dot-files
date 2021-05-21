@@ -95,12 +95,21 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'unblevable/quick-scope'
 Plugin 'lyokha/vim-xkbswitch'
 
 Plugin 'JamshedVesuna/vim-markdown-preview'
 
 call vundle#end()
 filetype plugin indent on
+
+" quickscope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary guifg='#ebcb8b' gui=underline ctermfg=3 cterm=underline
+  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#bf616a' gui=underline ctermfg=1 cterm=underline
+augroup END
 
 " theme
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
