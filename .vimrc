@@ -95,6 +95,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'lyokha/vim-xkbswitch'
 
 Plugin 'JamshedVesuna/vim-markdown-preview'
 
@@ -118,6 +119,9 @@ colorscheme nord
 " colorscheme gruvbox
 
 highlight Visual cterm=reverse ctermbg=NONE
+
+" xkbswitch
+let g:XkbSwitchEnabled = 1
 
 " lightline
 set laststatus=2
