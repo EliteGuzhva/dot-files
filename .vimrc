@@ -131,6 +131,9 @@ highlight Visual cterm=reverse ctermbg=NONE
 
 " xkbswitch
 let g:XkbSwitchEnabled = 1
+if has('linux')
+  let g:XkbSwitchLib = '/usr/local/lib/libg3kbswitch.so'
+endif
 
 " lightline
 set laststatus=2
