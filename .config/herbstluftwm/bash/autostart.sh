@@ -32,7 +32,7 @@ Mod=Mod1    # Use alt as the main modifier
 
 # custom key bindings
 hc keybind Mod4-n spawn nautilus
-hc keybind Mod4-f spawn firefox
+hc keybind Mod4-f spawn brave-browser
 hc keybind Mod4-s spawn skype
 hc keybind Mod4-t spawn telegram-desktop
 hc keybind Mod4-m spawn spotify
@@ -55,14 +55,14 @@ hc keybind XF86AudioMute spawn amixer -D pulse -q sset Master toggle
 hc keybind XF86AudioLowerVolume spawn amixer -D pulse -q sset Master 5%- unmute
 hc keybind XF86AudioRaiseVolume spawn amixer -D pulse -q sset Master 5%+ unmute
 
-hc keybind $Mod-F9 spawn amixer -D pulse -q sset Master toggle
-hc keybind $Mod-F10 spawn amixer -D pulse -q sset Master 5%- unmute
-hc keybind $Mod-F11 spawn amixer -D pulse -q sset Master 5%+ unmute
+hc keybind $Mod-F10 spawn amixer -D pulse -q sset Master toggle
+hc keybind $Mod-F11 spawn amixer -D pulse -q sset Master 5%- unmute
+hc keybind $Mod-F12 spawn amixer -D pulse -q sset Master 5%+ unmute
 # to set balance: amixer -D pulse set Master 45%,55%
 
-hc keybind $Mod-F7 spawn playerctl --player=spotify,firefox play-pause
-hc keybind $Mod-F6 spawn playerctl --player=spotify,firefox previous
-hc keybind $Mod-F8 spawn playerctl --player=spotify,firefox next
+hc keybind $Mod-F8 spawn playerctl --player=spotify,firefox play-pause
+hc keybind $Mod-F7 spawn playerctl --player=spotify,firefox previous
+hc keybind $Mod-F9 spawn playerctl --player=spotify,firefox next
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload

@@ -121,6 +121,7 @@ export GOLANG_HOME=/usr/local/go
 export EMACS_HOME=/home/nikita/.emacs.d
 export CARGO_HOME=/home/nikita/.cargo
 export GONEOVIM_HOME=/home/nikita/git_projects/Goneovim
+export SCRIPTS_HOME=/home/nikita/Documents/Scripts
 
 export OPENCV_ROOT_DIR=/usr
 export Python_ROOT_DIR=/usr
@@ -141,6 +142,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBTORCH_HOME/lib/:$TORCHVISION_HOME/in
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QT_HOME/lib:$QT_CREATOR_HOME/lib
 
 # PATH
+export PATH=$SCRIPTS_HOME:$PATH
 export PATH=$CMAKE_HOME/bin:$PATH
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$GONEOVIM_HOME:$CARGO_HOME/bin:$EMACS_HOME/bin:$CUDA_HOME/bin:$GOLANG_HOME/bin
@@ -157,8 +159,6 @@ export BAT_THEME="Nord"
 alias prog_folder='cd /data/disk/Data/Programming'
 alias svn_fix='sudo ip route add 192.168.1.93/32 via 192.168.220.13'
 alias gitlab_fix='sudo ip route add 192.168.1.92/32 via 192.168.220.12'
-alias connect_vpn='sudo /home/nikita/Documents/Scripts/connect_vpn.sh'
-alias mount_ftp='/home/nikita/Documents/Scripts/mount_ftp.sh'
 
 alias baidu_disk='baidunetdisk & disown'
 

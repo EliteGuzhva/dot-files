@@ -94,6 +94,13 @@
             "commands": ["editor.action.formatSelection"]
         }
     ],
-    "workbench.colorTheme": "Ayu Light",
-    "workbench.startupEditor": "none"
+    "workbench.colorTheme": "Nord",
+    "workbench.startupEditor": "none",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "workbench.activityBar.visible": false
 }
