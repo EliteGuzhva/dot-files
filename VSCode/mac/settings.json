@@ -2,7 +2,7 @@
     "cmake.configureOnOpen": true,
     "python.pythonPath": "/usr/local/bin/python3",
     "window.zoomLevel": 1,
-    "workbench.colorTheme": "Ayu Light",
+    "workbench.colorTheme": "Nord",
     "editor.cursorBlinking": "solid",
     "editor.minimap.enabled": false,
     "vim.leader": "<space>",
@@ -83,5 +83,12 @@
             "before": ["<leader>", "g", "c"],
             "commands": ["editor.action.formatSelection"]
         }
-    ]
+    ],
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter-notebook",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "workbench.activityBar.visible": false
 }
