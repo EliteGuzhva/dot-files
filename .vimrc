@@ -31,7 +31,6 @@ autocmd Filetype py setlocal tabstop=4 shiftwidth=4
 " Key bindings
 let mapleader = "\<Space>"
 
-" nnoremap <leader>t :wincmd b \| bel terminal<CR>
 nnoremap <leader>t :botright split term://zsh<CR>
 tnoremap <Esc> <C-\><C-n>
 
@@ -49,59 +48,73 @@ map < <C-W><
 map > <C-W>>
 nmap r :redo<CR>
 
-" polyglot
-let g:polyglot_disabled = ['cpp-modern']
-let g:python_highlight_all = 1
+" automatic package management
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" Vundle
-set nocompatible
-filetype off
+" packages
+call plug#begin(stdpath('data') . '/plugged')
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" themes
+Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'name': 'dracula' }
+Plug 'ayu-theme/ayu-vim'
+Plug 'adrian5/oceanic-next-vim'
+Plug 'morhetz/gruvbox'
 
-Plugin 'VundleVim/Vundle.vim'
+" project tree viewer
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
-Plugin 'dracula/vim', { 'name': 'dracula' }
-Plugin 'arcticicestudio/nord-vim'
-Plugin 'ayu-theme/ayu-vim'
-Plugin 'adrian5/oceanic-next-vim'
-Plugin 'morhetz/gruvbox'
+" status line
+Plug 'itchyny/lightline.vim'
 
-Plugin 'itchyny/lightline.vim'
-Plugin 'preservim/nerdtree'
+" additionals
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'unblevable/quick-scope'
+Plug 'christoomey/vim-system-copy'
+Plug 'szw/vim-maximizer'
+Plug 'lyokha/vim-xkbswitch'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
-Plugin 'neoclide/coc.nvim'
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'jackguo380/vim-lsp-cxx-highlight'
-Plugin 'cdelledonne/vim-cmake'
+" ide features
+Plug 'neoclide/coc.nvim', {'branch': 'v0.0.80'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-Plugin 'sheerun/vim-polyglot'
+" debugging
+Plug 'puremourning/vimspector'
 
-Plugin 'rust-lang/rust.vim'
-Plugin 'dart-lang/dart-vim-plugin'
+" language-specific plugins
+Plug 'cdelledonne/vim-cmake'
+Plug 'rust-lang/rust.vim'
+Plug 'dart-lang/dart-vim-plugin'
 
-Plugin 'skywind3000/asyncrun.vim'
-Plugin 'fisadev/FixedTaskList.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'christoomey/vim-system-copy'
-Plugin 'tpope/vim-commentary'
-Plugin 'puremourning/vimspector'
-Plugin 'szw/vim-maximizer'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'unblevable/quick-scope'
-Plugin 'lyokha/vim-xkbswitch'
+" icons
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-Plugin 'JamshedVesuna/vim-markdown-preview'
+call plug#end()
 
-call vundle#end()
-filetype plugin indent on
+" treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "cpp", "cmake", "python", "json", "yaml", "bash", "cuda", "dockerfile" },
+  highlight = {
+    enable = true,
+  },
+}
+EOF
 
 " quickscope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
@@ -117,16 +130,8 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set t_Co=256
 set background=dark
 
-" set termguicolors
-" let ayucolor="light"
-" colorscheme ayu
-
 set termguicolors
 colorscheme nord
-
-" set termguicolors
-" let g:gruvbox_contrast_dark="medium"
-" colorscheme gruvbox
 
 highlight Visual cterm=reverse ctermbg=NONE
 
@@ -205,18 +210,20 @@ map <C-f> :Goyo<CR>
 map <C-l> :Limelight!!<CR>
 let g:limelight_conceal_ctermfg = 'gray'
 
-" nerdtree
-" autocmd vimenter * NERDTree
+" NERDTree
+" Open on enter
+autocmd vimenter * NERDTreeFind | wincmd p
+
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+
+" keybindings
 nnoremap <silent> <leader>pt :NERDTreeToggle<CR>
 nnoremap <silent> <leader>pf :NERDTreeFind<CR>
 
-" YCM
-" nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
-" nnoremap <silent> <leader>gf :YcmCompleter FixIt<CR>
-" nnoremap <silent> <leader>gr :YcmCompleter GoToReferences<CR>
-" nnoremap <silent> <leader>vd :YcmCompleter GetDoc<CR>
-" nnoremap <silent> <leader>ft :YcmCompleter Format<CR>
-" nnoremap <leader>rr :YcmCompleter RefactorRename 
+" custom options
+let g:NERDTreeGitStatusUseNerdFonts = 1
 
 " Coc
 " Use tab for trigger completion with characters ahead and navigate.
@@ -272,20 +279,6 @@ nmap <leader>gc <Plug>(coc-format-selected)
 " Apply AutoFix to problem on the current line.
 nnoremap <leader>gf :CocFix<CR>
 
-" lsp-cxx
-let g:lsp_cxx_hl_use_text_props = 1
-
-" tags
-:nnoremap <leader>i :AsyncRun ctags -R<CR>
-
-" default
-if v:progname =~? "evim"
-  finish
-endif
-
-" Get the defaults that most users want.
-" source $VIMRUNTIME/defaults.vim
-
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
@@ -295,11 +288,6 @@ else
   endif
 endif
 
-if &t_Co > 2 || has("gui_running")
-  " Switch on highlighting the last used search pattern.
-  set hlsearch
-endif
-
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
   au!
@@ -307,14 +295,4 @@ augroup vimrcEx
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
 augroup END
-
-" Add optional packages.
-"
-" The matchit plugin makes the % command work better, but it is not backwards
-" compatible.
-" The ! means the package won't be loaded right away but when plugins are
-" loaded during initialization.
-if has('syntax') && has('eval')
-  packadd! matchit
-endif
 

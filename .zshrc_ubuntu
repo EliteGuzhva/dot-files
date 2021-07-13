@@ -121,8 +121,9 @@ export GOLANG_HOME=/usr/local/go
 export EMACS_HOME=/home/nikita/.emacs.d
 export CARGO_HOME=/home/nikita/.cargo
 export GONEOVIM_HOME=/home/nikita/git_projects/Goneovim
-export SCRIPTS_HOME=/home/nikita/Documents/Scripts
-export SPOTIFYD_HOME=/home/nikita/git_projects/spotifyd
+
+export SCRIPTS_HOME=$HOME/Documents/Scripts
+export APPIMAGES_HOME=$HOME/appimages
 
 export OPENCV_ROOT_DIR=/usr
 export Python_ROOT_DIR=/usr
@@ -130,8 +131,6 @@ export TRT_ROOT_DIR=/opt/tools/TensorRT-7.0.0.11
 export TRT_OSS_ROOT_DIR=/opt/tools/tensorrt-oss/cmake-build-release/install
 export TRT_COGN_ROOT_DIR=/opt/tools/tensorrt-cognitive-plugins/cmake-build-release/install
 export TRT_SERVER_LIBS_DIR=/opt/tools/libtensorrtserver/cmake-build-release
-
-export CPP_DEPS_HOME=/home/nikita/git_projects/cpp-dependencies
 
 # CPATH
 export CPATH=$CPATH:/usr/include/hdf5/serial
@@ -144,18 +143,16 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QT_HOME/lib:$QT_CREATOR_HOME/lib
 
 # PATH
 export PATH=$SCRIPTS_HOME:$PATH
+export PATH=$APPIMAGES_HOME:$PATH
 export PATH=$CMAKE_HOME/bin:$PATH
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$GONEOVIM_HOME:$CARGO_HOME/bin:$EMACS_HOME/bin:$CUDA_HOME/bin:$GOLANG_HOME/bin
 export PATH=$PATH:$QT_HOME/bin:$QT_CREATOR_HOME/bin
 export PATH=$PATH:/opt/baidunetdisk
-export PATH=$PATH:$CPP_DEPS_HOME/build/src
-export PATH=$PATH:$SPOTIFYD_HOME/target/release
 
 # Theme
 export GTK_THEME="Adwaita:dark"
 export BAT_THEME="Nord"
-# test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 # Custom aliases
 alias prog_folder='cd /data/disk/Data/Programming'
@@ -176,9 +173,7 @@ gim() {
 }
 
 alias gims='gim -S Session.vim'
-
-alias vim='nvim'
-alias vims='nvim -S Session.vim'
+alias vims='vim -S Session.vim'
 
 svndiff() {
     svn diff $1 | bat
