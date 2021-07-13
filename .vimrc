@@ -89,7 +89,7 @@ Plug 'lyokha/vim-xkbswitch'
 Plug 'JamshedVesuna/vim-markdown-preview'
 
 " ide features
-Plug 'neoclide/coc.nvim', {'branch': 'v0.0.80'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " debugging
