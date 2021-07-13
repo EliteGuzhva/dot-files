@@ -122,6 +122,7 @@ export EMACS_HOME=/home/nikita/.emacs.d
 export CARGO_HOME=/home/nikita/.cargo
 export GONEOVIM_HOME=/home/nikita/git_projects/Goneovim
 export SCRIPTS_HOME=/home/nikita/Documents/Scripts
+export SPOTIFYD_HOME=/home/nikita/git_projects/spotifyd
 
 export OPENCV_ROOT_DIR=/usr
 export Python_ROOT_DIR=/usr
@@ -149,6 +150,7 @@ export PATH=$PATH:$GONEOVIM_HOME:$CARGO_HOME/bin:$EMACS_HOME/bin:$CUDA_HOME/bin:
 export PATH=$PATH:$QT_HOME/bin:$QT_CREATOR_HOME/bin
 export PATH=$PATH:/opt/baidunetdisk
 export PATH=$PATH:$CPP_DEPS_HOME/build/src
+export PATH=$PATH:$SPOTIFYD_HOME/target/release
 
 # Theme
 export GTK_THEME="Adwaita:dark"
@@ -205,3 +207,6 @@ alias tldr='tldr -t base16'
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval "$(starship init zsh)"
+
+# switch caps and esc
+setxkbmap -option "caps:escape"

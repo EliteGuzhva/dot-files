@@ -121,7 +121,7 @@ set background=dark
 " let ayucolor="light"
 " colorscheme ayu
 
-" set termguicolors
+set termguicolors
 colorscheme nord
 
 " set termguicolors
