@@ -1,5 +1,5 @@
 {
-    "cmake.configureOnOpen": true,
+    "cmake.configureOnOpen": false,
     "python.pythonPath": "/usr/local/bin/python3",
     "window.zoomLevel": 1,
     "workbench.colorTheme": "Nord",
@@ -90,5 +90,7 @@
             "filenamePattern": "*.ipynb"
         }
     ],
+    "cmake.copyCompileCommands": "${workspaceFolder}",
+    "cmake.configureOnEdit": false,
     "workbench.activityBar.visible": false
 }
