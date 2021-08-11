@@ -102,6 +102,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'vim-scripts/vim-svngutter'
 Plug 'unblevable/quick-scope'
 Plug 'christoomey/vim-system-copy'
 Plug 'szw/vim-maximizer'
@@ -206,6 +207,14 @@ nmap <leader>vj <Plug>(GitGutterNextHunk)
 nmap <leader>vp <Plug>(GitGutterPreviewHunk)
 nmap <leader>vu <Plug>(GitGutterUndoHunk)
 nmap <leader>va <Plug>(GitGutterStageHunk)
+
+" ==========================================================================
+" SvnGutter
+" keybindings
+nmap <leader>s[ <Plug>(SvnGutterPrevHunk)
+nmap <leader>s] <Plug>(SvnGutterNextHunk)
+nmap <leader>sk <Plug>(SvnGutterPrevHunk)
+nmap <leader>sj <Plug>(SvnGutterNextHunk)
 
 " ==========================================================================
 " Vim Fugitive
