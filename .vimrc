@@ -226,6 +226,7 @@ nmap <leader>sj <Plug>(SvnGutterNextHunk)
 nmap <leader>vl :VCLog<CR>
 nmap <leader>vd :VCDiff<CR>
 nmap <leader>vr :VCRevert<CR>
+nmap <leader>vb :VCBlame<CR>
 nmap <leader>ss :VCStatus<CR>
 
 " ==========================================================================
