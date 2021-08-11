@@ -56,7 +56,7 @@ tnoremap <Esc> <C-\><C-n>
 nmap <leader>so :so %<CR>
 nmap <leader>q :q<CR>
 nmap <leader>x :xa<CR>
-nmap <leader>ss :mks!<CR>
+nmap <leader>sw :mks!<CR>
 nmap <leader>h :wincmd h<CR>
 nmap <leader>j :wincmd j<CR>
 nmap <leader>k :wincmd k<CR>
@@ -101,14 +101,17 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-scripts/vim-svngutter'
 Plug 'unblevable/quick-scope'
 Plug 'christoomey/vim-system-copy'
 Plug 'szw/vim-maximizer'
 Plug 'lyokha/vim-xkbswitch'
 Plug 'JamshedVesuna/vim-markdown-preview'
+
+" vcs
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-scripts/vim-svngutter'
+Plug 'juneedahamed/vc.vim'
 
 " ide features
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -216,6 +219,14 @@ nmap <leader>s[ <Plug>(SvnGutterPrevHunk)
 nmap <leader>s] <Plug>(SvnGutterNextHunk)
 nmap <leader>sk <Plug>(SvnGutterPrevHunk)
 nmap <leader>sj <Plug>(SvnGutterNextHunk)
+
+" ==========================================================================
+" VC.vim
+" keybindings
+nmap <leader>vl :VCLog<CR>
+nmap <leader>vd :VCDiff<CR>
+nmap <leader>vr :VCRevert<CR>
+nmap <leader>ss :VCStatus<CR>
 
 " ==========================================================================
 " Vim Fugitive
