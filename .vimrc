@@ -38,6 +38,7 @@ set undodir=~/.vim/undo//,.
 
 " file-specific options
 autocmd FileType text setlocal textwidth=78
+autocmd Filetype dart setlocal tabstop=2 shiftwidth=2
 autocmd Filetype h    setlocal tabstop=2 shiftwidth=2
 autocmd Filetype hpp  setlocal tabstop=2 shiftwidth=2
 autocmd Filetype c    setlocal tabstop=2 shiftwidth=2
@@ -165,7 +166,7 @@ let g:lightline = {
 " custom options
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "cpp", "cmake", "python", "json", "yaml", "bash", "cuda", "dockerfile" },
+  ensure_installed = { "cpp", "cmake", "python", "json", "yaml", "bash", "cuda", "dockerfile", "dart", "go", "rust", "java", "kotlin" },
   highlight = {
     enable = true,
   },

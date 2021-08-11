@@ -105,7 +105,6 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim="mvim -v"
 alias bs="brew search"
 alias bi="brew install"
 alias bci="brew cask install"
