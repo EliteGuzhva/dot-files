@@ -106,6 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # Personal configurations
 export EDITOR='vim'
 bindkey -v
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 # PATHS
 export TOOLS=/opt/tools 
@@ -125,11 +127,11 @@ export GONEOVIM_HOME=/home/nikita/git_projects/Goneovim
 export SCRIPTS_HOME=$HOME/Documents/Scripts
 export APPIMAGES_HOME=$HOME/appimages
 
-export OPENCV_ROOT_DIR=/usr
+export OPENCV_ROOT_DIR=/usr/local
 export Python_ROOT_DIR=/usr
 export TRT_ROOT_DIR=/opt/tools/TensorRT-7.0.0.11
-export TRT_OSS_ROOT_DIR=/opt/tools/tensorrt-oss/cmake-build-release/install
-export TRT_COGN_ROOT_DIR=/opt/tools/tensorrt-cognitive-plugins/cmake-build-release/install
+export TRT_OSS_ROOT_DIR=/opt/tools/tensorrt-oss/install
+export TRT_COGN_ROOT_DIR=/opt/tools/tensorrt-cognitive-plugins/install
 export TRT_SERVER_LIBS_DIR=/opt/tools/libtensorrtserver/cmake-build-release
 
 # CPATH
@@ -137,7 +139,7 @@ export CPATH=$CPATH:/usr/include/hdf5/serial
 
 # LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib32/:/lib/x86_64-linux-gnu/:/usr/lib/x86_64-linux-gnu/hdf5/serial/:$CUDA_HOME/lib64:/home/nikita/ar13_so:/usr/lib:/usr/local/lib
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TRT_ROOT_DIR/lib:$TRT_OSS_ROOT_DIR/lib:$TRT_COGN_ROOT_DIR/lib:$TRT_SERVER_LIBS_DIR
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TRT_ROOT_DIR/lib:$TRT_OSS_ROOT_DIR/lib:$TRT_COGN_ROOT_DIR/lib  # :$TRT_SERVER_LIBS_DIR
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBTORCH_HOME/lib/:$TORCHVISION_HOME/install/lib/  # :$TORCHSERVER_HOME/build/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QT_HOME/lib:$QT_CREATOR_HOME/lib
 

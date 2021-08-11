@@ -12,7 +12,6 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 i=0
 for m in $(polybar --list-monitors | cut -d":" -f1); do
 	MONITOR=$m polybar -c ~/.config/herbstluftwm/bash/polybar.ini example &
-	hc pad $i 15 0 0 0
 	i=$(( $i + 1 ))
 done
 

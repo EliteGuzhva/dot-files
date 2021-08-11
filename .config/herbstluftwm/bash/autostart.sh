@@ -1,34 +1,26 @@
 #!/usr/bin/env bash
 
-# this is a simple config for herbstluftwm
+# @brief Herbstluftwm config
+# @author EliteGuzhva
 
+# Utils
 hc() {
     herbstclient "$@"
 }
 
 hc emit_hook reload
 
-# set background color
-# xsetroot -solid '#404040'
-# feh --bg-scale /home/nikita/git_projects/nord-backgrounds/operating-systems/1920x1080/ubuntu.png
-# feh --bg-scale /home/nikita/git_projects/wallpapers/0116.jpg
+# set background
 feh --bg-scale /home/nikita/git_projects/wallpapers/0158.jpg
 
 # set compton for opacity
-# compton -b --config /home/nikita/.config/compton/compton.conf
 compton -f &
 
 # remove all existing keybindings
 hc keyunbind --all
 
-function get_sink() {
-	pactl list short | grep RUNNING | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,'
-}
-
 # keybindings
-# if you have a super key you will be much happier with Mod set to Mod4
 Mod=Mod1    # Use alt as the main modifier
-#Mod=Mod4   # Use the super key as the main modifier
 
 # custom key bindings
 hc keybind Mod4-n spawn nautilus
@@ -37,19 +29,14 @@ hc keybind Mod4-s spawn skype
 hc keybind Mod4-t spawn telegram-desktop
 hc keybind Mod4-m spawn spotify
 hc keybind Mod4-i spawn clion
-hc keybind Mod4-e spawn /home/nikita/git_projects/Goneovim/goneovim
-
-hc keybind $Mod-Shift-Return spawn dmenu_run
 
 hc keybind Mod4-1 spawn ibus engine xkb:us::eng
 hc keybind Mod4-2 spawn ibus engine xkb:ru::rus
 hc keybind Mod4-3 spawn ibus engine libpinyin
 
-hc keybind Print spawn gnome-screenshot -a
+hc keybind $Mod-Print spawn scrot -s -e 'mv $f ~/Pictures/Screenshots/'
 
-# hc keybind $Mod-F9 spawn pactl set-sink-mute $(get_sink) toggle
-# hc keybind $Mod-F10 spawn pactl set-sink-volume $(get_sink) -5%
-# hc keybind $Mod-F11 spawn pactl set-sink-volume $(get_sink) +5%
+hc keybind $Mod-Shift-Return spawn dmenu_run
 
 hc keybind XF86AudioMute spawn amixer -D pulse -q sset Master toggle
 hc keybind XF86AudioLowerVolume spawn amixer -D pulse -q sset Master 5%- unmute
@@ -60,9 +47,9 @@ hc keybind $Mod-F11 spawn amixer -D pulse -q sset Master 5%- unmute
 hc keybind $Mod-F12 spawn amixer -D pulse -q sset Master 5%+ unmute
 # to set balance: amixer -D pulse set Master 45%,55%
 
-hc keybind $Mod-F8 spawn playerctl --player=spotify,firefox play-pause
-hc keybind $Mod-F7 spawn playerctl --player=spotify,firefox previous
-hc keybind $Mod-F9 spawn playerctl --player=spotify,firefox next
+hc keybind $Mod-F8 spawn playerctl --player=playerctld play-pause
+hc keybind $Mod-F7 spawn playerctl --player=playerctld previous
+hc keybind $Mod-F9 spawn playerctl --player=playerctld next
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
@@ -181,7 +168,7 @@ hc attr theme.active.inner_color '#3E4A00'
 hc attr theme.active.outer_color '#3E4A00'
 hc attr theme.background_color '#141414'
 
-hc set window_gap 20
+hc set window_gap 10
 hc set frame_padding 0
 hc set smart_window_surroundings 0
 hc set smart_frame_surroundings 1
@@ -203,20 +190,10 @@ hc unlock
 
 herbstclient set tree_style '╾│ ├└╼─┐'
 
-# do multi monitor setup here, e.g.:
+# multi monitor setup:
 # hc set_monitors 1920x1060+0+20 1920x1060+1920+20
-# or simply:
-# xrandr --output DVI-D-0 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal
 xrandr --output DVI-D-0 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal
 hc detect_monitors
-
-# find the panel
-# panel=~/.config/herbstluftwm/bash/launch.sh
-# [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
-# for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
-#     # start it on each monitor
-#     "$panel" $monitor &
-# done
 
 # launch polybar
 ~/.config/herbstluftwm/bash/launch.sh
