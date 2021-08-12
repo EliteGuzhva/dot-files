@@ -11,10 +11,11 @@ hc() {
 hc emit_hook reload
 
 # set background
-feh --bg-scale /home/nikita/git_projects/wallpapers/0158.jpg
+feh --bg-scale --randomize /home/nikita/git_projects/wallpapers/*
 
 # set compton for opacity
-compton -f &
+# compton -f &
+compton --config /home/nikita/.config/compton/compton.conf &
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -37,6 +38,8 @@ hc keybind Mod4-3 spawn ibus engine libpinyin
 hc keybind $Mod-Print spawn scrot -s -e 'mv $f ~/Pictures/Screenshots/'
 
 hc keybind $Mod-Shift-Return spawn dmenu_run
+
+hc keybind $Mod-Shift-b spawn feh --bg-scale --randomize /home/nikita/git_projects/wallpapers/*
 
 hc keybind XF86AudioMute spawn amixer -D pulse -q sset Master toggle
 hc keybind XF86AudioLowerVolume spawn amixer -D pulse -q sset Master 5%- unmute
