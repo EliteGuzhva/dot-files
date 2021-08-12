@@ -106,6 +106,7 @@ Plug 'christoomey/vim-system-copy'
 Plug 'szw/vim-maximizer'
 Plug 'lyokha/vim-xkbswitch'
 Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'mhinz/vim-startify'
 
 " vcs
 Plug 'tpope/vim-fugitive'
@@ -130,6 +131,18 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 call plug#end()
+
+" ==========================================================================
+" Startify
+" keybindings
+nmap <leader>ss :SSave<CR>
+nmap <leader>sl :SLoad<CR>
+nmap <leader>sd :SDelete<CR>
+nmap <leader>sc :SClose<CR>
+
+" custom options
+let g:startify_session_persistence = 1
+let g:startify_change_to_vcs_root = 1
 
 " ==========================================================================
 " QuickScope
@@ -215,10 +228,10 @@ nmap <leader>va <Plug>(GitGutterStageHunk)
 " ==========================================================================
 " SvnGutter
 " keybindings
-nmap <leader>s[ <Plug>(SvnGutterPrevHunk)
-nmap <leader>s] <Plug>(SvnGutterNextHunk)
-nmap <leader>sk <Plug>(SvnGutterPrevHunk)
-nmap <leader>sj <Plug>(SvnGutterNextHunk)
+nmap <leader>vg[ <Plug>(SvnGutterPrevHunk)
+nmap <leader>vg] <Plug>(SvnGutterNextHunk)
+nmap <leader>vgk <Plug>(SvnGutterPrevHunk)
+nmap <leader>vgj <Plug>(SvnGutterNextHunk)
 
 " ==========================================================================
 " VC.vim
@@ -227,7 +240,7 @@ nmap <leader>vl :VCLog<CR>
 nmap <leader>vd :VCDiff<CR>
 nmap <leader>vr :VCRevert<CR>
 nmap <leader>vb :VCBlame<CR>
-nmap <leader>ss :VCStatus<CR>
+nmap <leader>vgs :VCStatus<CR>
 
 " ==========================================================================
 " Vim Fugitive
