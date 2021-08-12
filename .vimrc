@@ -135,10 +135,10 @@ call plug#end()
 " ==========================================================================
 " Startify
 " keybindings
-nmap <leader>ss :SSave<CR>
-nmap <leader>sl :SLoad<CR>
+nmap <leader>ss :NERDTreeClose <bar> :SSave<CR>
+nmap <leader>sl :SLoad <bar> :NERDTreeFind<CR>
 nmap <leader>sd :SDelete<CR>
-nmap <leader>sc :SClose<CR>
+nmap <leader>sc :NERDTreeClose <bar> :SClose<CR>
 
 " custom options
 let g:startify_session_persistence = 1
@@ -320,7 +320,7 @@ let g:limelight_conceal_ctermfg = 'gray'
 " ==========================================================================
 " NERDTree
 " Open on enter
-autocmd vimenter * NERDTreeFind | wincmd p
+autocmd VimEnter * NERDTreeFind | wincmd p
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
