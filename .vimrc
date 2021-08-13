@@ -183,10 +183,10 @@ let g:floaterm_autoclose=1
 " keybindings
 let g:which_key_map.s = {
       \ 'name' : '+session',
-      \ 's' : [':NERDTreeClose <bar> :SSave', 'save'],
-      \ 'l' : [':SLoad <bar> :NERDTreeFind', 'load'],
+      \ 's' : [':SSave', 'save'],
+      \ 'l' : [':SLoad', 'load'],
       \ 'd' : [':SDelete', 'delete'],
-      \ 'c' : [':NERDTreeClose <bar> :SClose', 'close'],
+      \ 'c' : [':SClose', 'close'],
       \ }
 
 " custom options
