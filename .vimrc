@@ -50,17 +50,9 @@ autocmd Filetype py   setlocal tabstop=4 shiftwidth=4
 " Key bindings
 let mapleader = "\<Space>"
 
-nnoremap <leader>t :botright split term://zsh<CR>
+nmap <leader>so :so %<CR>
 tnoremap <Esc> <C-\><C-n>
 
-nmap <leader>so :so %<CR>
-nmap <leader>q :q<CR>
-nmap <leader>x :xa<CR>
-nmap <leader>sw :mks!<CR>
-nmap <leader>h :wincmd h<CR>
-nmap <leader>j :wincmd j<CR>
-nmap <leader>k :wincmd k<CR>
-nmap <leader>l :wincmd l<CR>
 map - <C-W>-
 map + <C-W>+
 map < <C-W><
@@ -107,6 +99,7 @@ Plug 'szw/vim-maximizer'
 Plug 'lyokha/vim-xkbswitch'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'mhinz/vim-startify'
+Plug 'liuchengxu/vim-which-key'
 
 " vcs
 Plug 'tpope/vim-fugitive'
@@ -133,12 +126,45 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
 
 " ==========================================================================
+" Which Key
+" keybindings
+nnoremap <silent> <leader> :silent WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
+
+" custom options
+let g:which_key_map =  {}
+let g:which_key_sep = '→'
+
+let g:which_key_use_floating_win = 0
+
+set timeoutlen=500
+
+autocmd! FileType which_key
+autocmd  FileType which_key set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+
+call which_key#register('<Space>', "g:which_key_map")
+
+" basics
+let g:which_key_map['q'] = [ ':q', 'quit' ]
+let g:which_key_map['x'] = [ ':xa', 'save & quit all' ]
+let g:which_key_map['h'] = [ ':wincmd h', 'go to left window' ]
+let g:which_key_map['j'] = [ ':wincmd j', 'go to bottom window' ]
+let g:which_key_map['k'] = [ ':wincmd k', 'go to upper window' ]
+let g:which_key_map['l'] = [ ':wincmd l', 'go to right window' ]
+let g:which_key_map['='] = [ ':wincmd =', 'balance windows' ]
+let g:which_key_map['t'] = [ '::botright split term://zsh', 'open terminal' ]
+
+" ==========================================================================
 " Startify
 " keybindings
-nmap <leader>ss :NERDTreeClose <bar> :SSave<CR>
-nmap <leader>sl :SLoad <bar> :NERDTreeFind<CR>
-nmap <leader>sd :SDelete<CR>
-nmap <leader>sc :NERDTreeClose <bar> :SClose<CR>
+let g:which_key_map.s = {
+      \ 'name' : '+session',
+      \ 's' : [':NERDTreeClose <bar> :SSave', 'save'],
+      \ 'l' : [':SLoad <bar> :NERDTreeFind', 'load'],
+      \ 'd' : [':SDelete', 'delete'],
+      \ 'c' : [':NERDTreeClose <bar> :SClose', 'close'],
+      \ }
 
 " custom options
 let g:startify_session_persistence = 1
@@ -213,46 +239,46 @@ nmap <leader>ff :Files<CR>
 nmap <leader>fl :BLines<CR>
 nmap <leader>fs :Rg<CR>
 nmap <leader>fh :History<CR>
+let g:which_key_map.f = {
+      \ 'name' : '+find',
+      \ 'f' : [':Files', 'files'],
+      \ 'l' : [':BLines', 'lines'],
+      \ 's' : [':Rg', 'symbols'],
+      \ 'h' : [':History', 'history'],
+      \ }
 
 " ==========================================================================
-" GitGutter
+" VCS
 " keybindings
-nmap <leader>v[ <Plug>(GitGutterPrevHunk)
-nmap <leader>v] <Plug>(GitGutterNextHunk)
-nmap <leader>vk <Plug>(GitGutterPrevHunk)
-nmap <leader>vj <Plug>(GitGutterNextHunk)
-nmap <leader>vp <Plug>(GitGutterPreviewHunk)
-nmap <leader>vu <Plug>(GitGutterUndoHunk)
-nmap <leader>va <Plug>(GitGutterStageHunk)
-
-" ==========================================================================
-" SvnGutter
-" keybindings
-nmap <leader>vg[ <Plug>(SvnGutterPrevHunk)
-nmap <leader>vg] <Plug>(SvnGutterNextHunk)
-nmap <leader>vgk <Plug>(SvnGutterPrevHunk)
-nmap <leader>vgj <Plug>(SvnGutterNextHunk)
-
-" ==========================================================================
-" VC.vim
-" keybindings
-nmap <leader>vl :VCLog<CR>
-nmap <leader>vd :VCDiff<CR>
-nmap <leader>vr :VCRevert<CR>
-nmap <leader>vb :VCBlame<CR>
-nmap <leader>vgs :VCStatus<CR>
-
-" ==========================================================================
-" Vim Fugitive
-" keybindings
-nmap <leader>vs :G<CR>
-nmap <leader>vf :diffget //2<CR>
-nmap <leader>vh :diffget //3<CR>
+let g:which_key_map.v = {
+      \ 'name' : '+vcs',
+      \ '[' : ['<Plug>(GitGutterPrevHunk)', 'previous hunk'],
+      \ ']' : ['<Plug>(GitGutterNextHunk)', 'next hunk'],
+      \ 'k' : ['<Plug>(GitGutterPrevHunk)', 'previous hunk'],
+      \ 'j' : ['<Plug>(GitGutterNextHunk)', 'next hunk'],
+      \ 'p' : ['<Plug>(GitGutterPreviewHunk)', 'preview hunk'],
+      \ 'u' : ['<Plug>(GitGutterUndoHunk)', 'undo hunk'],
+      \ 'a' : ['<Plug>(GitGutterStageHunk)', 'stage hunk'],
+      \ 's' : [':G', 'status'],
+      \ 'l' : [':VCLog', 'log'],
+      \ 'd' : [':VCDiff', 'diff'],
+      \ 'r' : [':VCRevert', 'revert'],
+      \ 'b' : [':VCBlame', 'blame'],
+      \ 'v' : {
+        \ 'name' : '+svn',
+        \ '[' : ['<Plug>(SvnGutterPrevHunk)', 'previous hunk'],
+        \ ']' : ['<Plug>(SvnGutterNextHunk)', 'next hunk'],
+        \ 'k' : ['<Plug>(SvnGutterPrevHunk)', 'previous hunk'],
+        \ 'j' : ['<Plug>(SvnGutterNextHunk)', 'next hunk'],
+        \ 's' : [':VCStatus', 'status'],
+        \ } 
+      \ }
 
 " ==========================================================================
 " Maximizer
 " keybindings
 nnoremap <leader>m :MaximizerToggle!<CR>
+let g:which_key_map['m'] = [ ':MaximizerToggle!', 'maximize window toggle' ]
 
 " helper function (go to window and maximize it)
 fun GotoWindow(id)
@@ -279,40 +305,39 @@ endif
 let g:vimspector_enable_mappings='VISUAL_STUDIO'
 
 " keybindings
-nnoremap <leader>dd :call vimspector#Launch()<CR>
-nnoremap <leader>de :call vimspector#Reset()<CR>
-nnoremap <leader>dx :call vimspector#ClearBreakpoints()<CR>
-
-nmap <leader>ds <Plug>VimspectorStop
-nmap <leader>dr <Plug>VimspectorRestart
-nmap <leader>dc <Plug>VimspectorContinue
-nmap <leader>df <Plug>VimspectorRunToCursor
-nmap <leader>db <Plug>VimspectorToggleBreakpoint
-nmap <leader>do <Plug>VimspectorToggleConditionalBreakpoint
-nmap <leader>dn <Plug>VimspectorStepOver
-nmap <leader>dj <Plug>VimspectorStepInto
-nmap <leader>dk <Plug>VimspectorStepOut
-
-nmap <leader>dh <Plug>VimspectorUpFrame
-nmap <leader>dl <Plug>VimspectorDownFrame
-nmap <leader>di <Plug>VimspectorBalloonEval
-xmap <leader>di <Plug>VimspectorBalloonEval
-
-" switch between windows in debugger
-nnoremap <leader>dgc :call GotoWindow(g:vimspector_session_windows.code)<CR>
-nnoremap <leader>dgv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
-nnoremap <leader>dgs :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
-nnoremap <leader>dgo :call GotoWindow(g:vimspector_session_windows.output)<CR>
-
-" ==========================================================================
-" Goyo
-" keybindings
-map <C-f> :Goyo<CR>
+let g:which_key_map.d = {
+      \ 'name' : '+debug',
+      \ 's' : ['<Plug>VimspectorStop', 'stop'],
+      \ 'r' : ['<Plug>VimspectorRestart', 'restart'],
+      \ 'c' : ['<Plug>VimspectorContinue', 'continue'],
+      \ 'f' : ['<Plug>VimspectorRunToCursor', 'run to cursor (follow)'],
+      \ 'b' : ['<Plug>VimspectorToggleBreakpoint', 'toggle breakpoint'],
+      \ 'n' : ['<Plug>VimspectorStepOver', 'step over (next)'],
+      \ 'j' : ['<Plug>VimspectorStepInto', 'step into (down)'],
+      \ 'k' : ['<Plug>VimspectorStepOut', 'step out (up)'],
+      \ 'h' : ['<Plug>VimspectorUpFrame', 'up frame (left)'],
+      \ 'l' : ['<Plug>VimspectorDownFrame', 'down frame (right)'],
+      \ 'i' : ['<Plug>VimspectorBalloonEval', 'inspect element under cursor'],
+      \ 'd' : [':call vimspector#Launch()', 'debug (launch)'],
+      \ 'e' : [':call vimspector#Reset()', 'reset'],
+      \ 'x' : [':call vimspector#ClearBreakpoints()', 'clear breakpoints'],
+      \ 'g' : {
+        \ 'name' : '+go to window',
+        \ 'c' : [':call GotoWindow(g:vimspector_session_windows.code', 'code'],
+        \ 'v' : [':call GotoWindow(g:vimspector_session_windows.variables', 'variables'],
+        \ 's' : [':call GotoWindow(g:vimspector_session_windows.stack_trace', 'stack trace'],
+        \ 'o' : [':call GotoWindow(g:vimspector_session_windows.output', 'output'],
+        \ } 
+      \ }
 
 " ==========================================================================
-" Limelight
+" Zen mode
 " keybindings
-map <C-l> :Limelight!!<CR>
+let g:which_key_map.z = {
+      \ 'name' : '+zen',
+      \ 'f' : [':Goyo', 'focus'],
+      \ 'l' : [':Limelight!!', 'toggle limelight'],
+      \ }
 
 " custom options
 let g:limelight_conceal_ctermfg = 'gray'
@@ -327,8 +352,11 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
     \ quit | endif
 
 " keybindings
-nnoremap <silent> <leader>pt :NERDTreeToggle<CR>
-nnoremap <silent> <leader>pf :NERDTreeFind<CR>
+let g:which_key_map.p = {
+      \ 'name' : '+project tree',
+      \ 't' : [':NERDTreeToggle', 'toggle'],
+      \ 'f' : [':NERDTreeFind', 'find current file in project tree'],
+      \ }
 
 " custom options
 let g:NERDTreeGitStatusUseNerdFonts = 1
@@ -364,17 +392,19 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " keybindings
-nmap <silent> <leader>gd <Plug>(coc-definition)
-nmap <silent> <leader>gt <Plug>(coc-type-definition)
-nmap <silent> <leader>gi <Plug>(coc-implementation)
-nmap <silent> <leader>gr <Plug>(coc-references)
-nmap <silent> <leader>gk <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>gj <Plug>(coc-diagnostic-next)
-nmap <silent> <leader>g[ <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>g] <Plug>(coc-diagnostic-next)
-nmap <silent> <leader>gn <Plug>(coc-rename)
-nmap <silent> <leader>gc <Plug>(coc-format-selected)
-xmap <silent> <leader>gc <Plug>(coc-format-selected)
-nmap <silent> <leader>gh :call <SID>show_documentation()<CR>
-nmap <silent> <leader>gf :CocFix<CR>
+let g:which_key_map.g = {
+      \ 'name' : '+lsp',
+      \ 'd' : ['<Plug>(coc-definition)', 'go to definition'],
+      \ 't' : ['<Plug>(coc-type-definition)', 'go to type definition'],
+      \ 'i' : ['<Plug>(coc-implementation)', 'go to implementation'],
+      \ 'r' : ['<Plug>(coc-references)', 'go to references'],
+      \ 'k' : ['<Plug>(coc-diagnostic-prev)', 'go to previous error'],
+      \ 'j' : ['<Plug>(coc-diagnostic-next)', 'go to next error'],
+      \ '[' : ['<Plug>(coc-diagnostic-prev)', 'go to previous error'],
+      \ ']' : ['<Plug>(coc-diagnostic-next)', 'go to next error'],
+      \ 'n' : ['<Plug>(coc-rename)', 'rename'],
+      \ 'c' : ['<Plug>(coc-format-selected)', 'format selected'],
+      \ 'h' : [':call <SID>show_documentation()', 'show documentation (hover)'],
+      \ 'f' : [':CocFix', 'fix'],
+      \ }
 
