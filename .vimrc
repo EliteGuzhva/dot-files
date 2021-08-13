@@ -100,6 +100,7 @@ Plug 'lyokha/vim-xkbswitch'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'mhinz/vim-startify'
 Plug 'liuchengxu/vim-which-key'
+Plug 'voldikss/vim-floaterm'
 
 " vcs
 Plug 'tpope/vim-fugitive'
@@ -153,7 +154,29 @@ let g:which_key_map['j'] = [ ':wincmd j', 'go to bottom window' ]
 let g:which_key_map['k'] = [ ':wincmd k', 'go to upper window' ]
 let g:which_key_map['l'] = [ ':wincmd l', 'go to right window' ]
 let g:which_key_map['='] = [ ':wincmd =', 'balance windows' ]
-let g:which_key_map['t'] = [ '::botright split term://zsh', 'open terminal' ]
+" let g:which_key_map['t'] = [ '::botright split term://zsh', 'open terminal' ]
+
+" ==========================================================================
+" Floaterm
+" keybindings
+let g:which_key_map.t = {
+      \ 'name' : '+terminal' ,
+      \ ';' : [':FloatermNew --wintype=popup --height=30'       , 'floating terminal'],
+      \ 'g' : [':FloatermNew lazygit'                           , 'git'],
+      \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
+      \ 'h' : [':FloatermNew htop'                              , 'htop'],
+      \ 'p' : [':FloatermNew python3'                           , 'python'],
+      \ 't' : [':FloatermToggle'                                , 'toggle'],
+      \ 's' : ['::botright split term://zsh'                    , 'terminal split'],
+      \ }
+
+" custom options
+let g:floaterm_gitcommit='floaterm'
+let g:floaterm_autoinsert=1
+let g:floaterm_width=0.8
+let g:floaterm_height=0.8
+let g:floaterm_wintitle=0
+let g:floaterm_autoclose=1
 
 " ==========================================================================
 " Startify
