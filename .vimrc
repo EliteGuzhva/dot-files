@@ -415,6 +415,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " keybindings
+nnoremap <silent> <leader>gh :call <SID>show_documentation()<CR>
 let g:which_key_map.g = {
       \ 'name' : '+lsp',
       \ 'd' : ['<Plug>(coc-definition)', 'go to definition'],
@@ -427,7 +428,7 @@ let g:which_key_map.g = {
       \ ']' : ['<Plug>(coc-diagnostic-next)', 'go to next error'],
       \ 'n' : ['<Plug>(coc-rename)', 'rename'],
       \ 'c' : ['<Plug>(coc-format-selected)', 'format selected'],
-      \ 'h' : [':call <SID>show_documentation()', 'show documentation (hover)'],
       \ 'f' : [':CocFix', 'fix'],
+      \ 'h' : 'show documentation (hover)',
       \ }
 
