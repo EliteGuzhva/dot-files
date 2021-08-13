@@ -84,12 +84,9 @@
             "commands": ["editor.action.formatSelection"]
         }
     ],
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter-notebook",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
     "cmake.copyCompileCommands": "${workspaceFolder}",
     "cmake.configureOnEdit": false,
     "workbench.activityBar.visible": false
