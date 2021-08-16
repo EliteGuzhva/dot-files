@@ -79,6 +79,9 @@ Plug 'adrian5/oceanic-next-vim'
 Plug 'morhetz/gruvbox'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'arzg/vim-colors-xcode'
+Plug 'tomasiser/vim-code-dark'
+Plug 'bluz71/vim-nightfly-guicolors'
+Plug 'sainnhe/gruvbox-material'
 
 " project tree viewer
 Plug 'preservim/nerdtree'
@@ -215,8 +218,9 @@ set t_Co=256
 set background=dark
 
 set termguicolors
-let g:gruvbox_contrast_dark="medium"
-colorscheme gruvbox
+let g:gruvbox_material_background = "medium"
+let g:gruvbox_material_transparent_background = 1
+colorscheme gruvbox-material
 
 highlight Visual cterm=reverse ctermbg=NONE
 
@@ -226,7 +230,7 @@ highlight Visual cterm=reverse ctermbg=NONE
 set laststatus=2
 set noshowmode
 let g:lightline = {
-    \ "colorscheme": "gruvbox",
+    \ "colorscheme": "gruvbox_material",
     \ }
 
 " ==========================================================================
