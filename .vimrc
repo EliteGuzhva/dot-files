@@ -77,6 +77,8 @@ Plug 'dracula/vim', { 'name': 'dracula' }
 Plug 'ayu-theme/ayu-vim'
 Plug 'adrian5/oceanic-next-vim'
 Plug 'morhetz/gruvbox'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'arzg/vim-colors-xcode'
 
 " project tree viewer
 Plug 'preservim/nerdtree'
@@ -213,7 +215,8 @@ set t_Co=256
 set background=dark
 
 set termguicolors
-colorscheme nord
+let g:gruvbox_contrast_dark="medium"
+colorscheme gruvbox
 
 highlight Visual cterm=reverse ctermbg=NONE
 
@@ -223,7 +226,7 @@ highlight Visual cterm=reverse ctermbg=NONE
 set laststatus=2
 set noshowmode
 let g:lightline = {
-    \ "colorscheme": "nord",
+    \ "colorscheme": "gruvbox",
     \ }
 
 " ==========================================================================
