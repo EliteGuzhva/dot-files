@@ -5,6 +5,7 @@
     },
     "cmake.cmakePath": "/opt/tools/cmake/cmake-3.17.2-Linux-x86_64/bin/cmake",
     "C_Cpp.default.cppStandard": "c++17",
+    "clangd.fallbackFlags": ["-std=c++17"],
     "python.pythonPath": "/usr/bin/python3",
     "python.languageServer": "Pylance",
     "python.showStartPage": false,
@@ -94,10 +95,11 @@
             "commands": ["editor.action.formatSelection"]
         }
     ],
-    "workbench.colorTheme": "Nord",
+    "workbench.colorTheme": "Gruvbox Material Dark",
     "workbench.startupEditor": "none",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb"
     },
-    "workbench.activityBar.visible": false
+    "workbench.activityBar.visible": false,
+    "python.defaultInterpreterPath": "/usr/bin/python3"
 }

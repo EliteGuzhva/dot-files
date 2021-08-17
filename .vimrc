@@ -81,7 +81,7 @@ Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'arzg/vim-colors-xcode'
 Plug 'tomasiser/vim-code-dark'
 Plug 'bluz71/vim-nightfly-guicolors'
-Plug 'sainnhe/gruvbox-material'
+Plug 'EliteGuzhva/gruvbox-material'
 
 " project tree viewer
 Plug 'preservim/nerdtree'
@@ -204,11 +204,11 @@ let g:startify_change_to_vcs_root = 1
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " custom options
-augroup qs_colors
-  autocmd!
-  autocmd ColorScheme * highlight QuickScopePrimary guifg='#ebcb8b' gui=underline ctermfg=3 cterm=underline
-  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#bf616a' gui=underline ctermfg=1 cterm=underline
-augroup END
+" augroup qs_colors
+"   autocmd!
+"   autocmd ColorScheme * highlight QuickScopePrimary guifg='#ebcb8b' gui=underline ctermfg=3 cterm=underline
+"   autocmd ColorScheme * highlight QuickScopeSecondary guifg='#bf616a' gui=underline ctermfg=1 cterm=underline
+" augroup END
 
 " ==========================================================================
 " theme
