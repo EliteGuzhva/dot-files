@@ -1,13 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="/home/nikita/.oh-my-zsh"
 
@@ -15,57 +5,10 @@ export ZSH="/home/nikita/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_THEME=""
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
-# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -76,32 +19,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 #===========================================================================================================================================================
 # Personal configurations
 export EDITOR='vim'
@@ -109,74 +26,71 @@ bindkey -v
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+# VERSIONS
+export CMAKE_VERSION="3.17.2"
+export QT_VERSION="5.14.2"
+export TENSORRT_VERSION="7.1.3"
+export LIBTORCH_VERSION="1.8.0"
+export TORCHVISION_VERSION="0.9.0"
+
 # PATHS
-export TOOLS=/opt/tools 
+export TOOLS=/data/tools
+export GIT_PROJECTS=$HOME/git_projects
+
+export SCRIPTS=$HOME/Documents/Scripts
+export APPIMAGES=$HOME/appimages
 
 export CUDA_HOME=/usr/local/cuda 
-export CMAKE_HOME=$TOOLS/cmake/cmake-3.17.2-Linux-x86_64 
-export QT_HOME=$TOOLS/qt/Qt5.14.2/5.14.2/gcc_64
-export QT_CREATOR_HOME=$TOOLS/qt/Qt5.14.2/Tools/QtCreator
-export LIBTORCH_HOME=$TOOLS/libtorch
-export TORCHVISION_HOME=$TOOLS/torchvision
-export TORCHSERVER_HOME=$TOOLS/torchserver
 export GOLANG_HOME=/usr/local/go
-export EMACS_HOME=/home/nikita/.emacs.d
-export CARGO_HOME=/home/nikita/.cargo
-export GONEOVIM_HOME=/home/nikita/git_projects/Goneovim
+export EMACS_HOME=$HOME/.emacs.d
+export CARGO_HOME=$HOME/.cargo
+export CMAKE_HOME=$TOOLS/CMake/$CMAKE_VERSION
+export QT_HOME=$TOOLS/QT/$QT_VERSION/$QT_VERSION/gcc_64
 
-export SCRIPTS_HOME=$HOME/Documents/Scripts
-export APPIMAGES_HOME=$HOME/appimages
+export LIBTORCH_HOME=$TOOLS/LibTorch/$LIBTORCH_VERSION
+export TORCHVISION_HOME=$TOOLS/TorchVision/$TORCHVISION_VERSION
 
-export OPENCV_ROOT_DIR=/usr/local
-export Python_ROOT_DIR=/usr
-export TRT_ROOT_DIR=/opt/tools/TensorRT-7.0.0.11
-export TRT_OSS_ROOT_DIR=/opt/tools/tensorrt-oss/install
-export TRT_COGN_ROOT_DIR=/opt/tools/tensorrt-cognitive-plugins/install
-export TRT_SERVER_LIBS_DIR=/opt/tools/libtensorrtserver/cmake-build-release
+export TENSORRT_HOME=$TOOLS/TensorRT/$TENSORRT_VERSION
+export TENSORRT_OSS_HOME=$GIT_PROJECTS/tensorrt-oss
+export TENSORRT_COGNITIVE_PLUGINS_HOME=$GIT_PROJECTS/tensorrt-cognitive-plugins
 
 # CPATH
 export CPATH=$CPATH:/usr/include/hdf5/serial
 
 # LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/lib32/:/lib/x86_64-linux-gnu/:/usr/lib/x86_64-linux-gnu/hdf5/serial/:$CUDA_HOME/lib64:/home/nikita/ar13_so:/usr/lib:/usr/local/lib
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TRT_ROOT_DIR/lib:$TRT_OSS_ROOT_DIR/lib:$TRT_COGN_ROOT_DIR/lib  # :$TRT_SERVER_LIBS_DIR
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBTORCH_HOME/lib/:$TORCHVISION_HOME/install/lib/  # :$TORCHSERVER_HOME/build/
-# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QT_HOME/lib:$QT_CREATOR_HOME/lib
+export LD_LIBRARY_PATH=/usr/lib32/:/lib/x86_64-linux-gnu/:/usr/lib/x86_64-linux-gnu/hdf5/serial/:/usr/lib:/usr/local/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME/lib64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ar13_so
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TENSORRT_HOME/lib:$TENSORRT_OSS_HOME/install/lib:$TENSORRT_COGNITIVE_PLUGINS_HOME/install/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBTORCH_HOME/lib/:$TORCHVISION_HOME/install/lib/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QT_HOME/lib
 
 # PATH
-export PATH=$SCRIPTS_HOME:$PATH
-export PATH=$APPIMAGES_HOME:$PATH
+export PATH=$SCRIPTS:$PATH
+export PATH=$APPIMAGES:$PATH
 export PATH=$CMAKE_HOME/bin:$PATH
 export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$GONEOVIM_HOME:$CARGO_HOME/bin:$EMACS_HOME/bin:$CUDA_HOME/bin:$GOLANG_HOME/bin
-export PATH=$PATH:$QT_HOME/bin:$QT_CREATOR_HOME/bin
+export PATH=$PATH:$CUDA_HOME/bin
+export PATH=$PATH:$CARGO_HOME/bin
+export PATH=$PATH:$GOLANG_HOME/bin
+export PATH=$PATH:$EMACS_HOME/bin
 export PATH=$PATH:/opt/baidunetdisk
+export PATH=$PATH:$QT_HOME/bin
 
 # Theme
 export GTK_THEME="Adwaita:dark"
-export BAT_THEME="Nord"
+export BAT_THEME="gruvbox-dark"
 
 # Custom aliases
+alias ls='exa'
+alias tldr='tldr -t base16'
+alias hc='herbstclient'
+alias baidu_disk='baidunetdisk & disown'
 alias prog_folder='cd /data/disk/Data/Programming'
 alias svn_fix='sudo ip route add 192.168.1.93/32 via 192.168.220.13'
 alias gitlab_fix='sudo ip route add 192.168.1.92/32 via 192.168.220.12'
 
-alias baidu_disk='baidunetdisk & disown'
-
-alias storage='df -t ext4 -h'
-alias top20='find /home -type f -exec du -h {} + | sort -hr | head -20'
-
-alias allow_access='ngrok tcp --region=eu 22'
-
-alias hc='herbstclient'
-
-gim() {
-    LD_LIBRARY_PATH=; goneovim $@ & disown
-}
-
-alias gims='gim -S Session.vim'
-alias vims='vim -S Session.vim'
-
+# svn
 svndiff() {
     svn diff $1 | bat
 }
@@ -188,21 +102,14 @@ alias sr='svn remove'
 alias sd='svndiff'
 alias sb='svn blame'
 
+# git
 gitdiff() {
     git diff --name-only --diff-filter=d | xargs bat --diff
 }
 
 alias gd='gitdiff'
 
-alias ls='exa'
-alias tldr='tldr -t base16'
-
-# alacritty stuff (needed?)
-# source ~/.bash_completion/alacritty
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+# init starship
 eval "$(starship init zsh)"
 
 # switch caps and esc
