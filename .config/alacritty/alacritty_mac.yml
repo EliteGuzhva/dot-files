@@ -176,7 +176,8 @@ font:
 draw_bold_text_with_bright_colors: false
 
 import:
-  - /Users/eliteguzhva/git_projects/alacritty-theme/themes/nord.yaml
+  # - /Users/eliteguzhva/git_projects/alacritty-theme/themes/nord.yaml
+  - /Users/eliteguzhva/git_projects/alacritty-theme/themes/gruvbox_material.yml
   # - /Users/eliteguzhva/git_projects/alacritty-theme/themes/ayu-light.yaml
 
 # Colors (Tomorrow Night)
