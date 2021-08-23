@@ -106,6 +106,7 @@ Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'mhinz/vim-startify'
 Plug 'liuchengxu/vim-which-key'
 Plug 'voldikss/vim-floaterm'
+Plug 'tibabit/vim-templates'
 
 " vcs
 Plug 'tpope/vim-fugitive'
@@ -244,6 +245,13 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+" ==========================================================================
+" Vim-Templates
+" custom options
+let g:tmpl_search_paths = ['~/git_projects/templates']
+let g:tmpl_author_email = 'nik_finger@mail.ru'
+let g:tmpl_author_name = 'Nikita Guzhva'
 
 " ==========================================================================
 " XkbSwitch

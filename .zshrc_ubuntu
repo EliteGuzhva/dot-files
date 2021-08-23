@@ -61,7 +61,7 @@ export CPATH=$CPATH:/usr/include/hdf5/serial
 export LD_LIBRARY_PATH=/usr/lib32/:/lib/x86_64-linux-gnu/:/usr/lib/x86_64-linux-gnu/hdf5/serial/:/usr/lib:/usr/local/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME/lib64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ar13_so
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TENSORRT_HOME/lib:$TENSORRT_OSS_HOME/install/lib:$TENSORRT_COGNITIVE_PLUGINS_HOME/install/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TENSORRT_OSS_HOME/install/lib:$TENSORRT_HOME/lib:$TENSORRT_COGNITIVE_PLUGINS_HOME/install/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBTORCH_HOME/lib/:$TORCHVISION_HOME/install/lib/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QT_HOME/lib
 
