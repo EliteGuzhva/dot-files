@@ -99,14 +99,14 @@ hc keybind $Mod-Control-Up      resize up +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
 
 # tags
-# tag_names=("Net" "Config" "Social" "Files" "Terminal" "Dev" "Dev2" "Misc" "Free")
-tag_names=("Net" "Config" "Social" "Files" "Terminal" "Dev" "Dev2" "Music" "Free")
-tag_keys=( {1..9} 0 )
+tag_names=("Net" "Terminal" "Social" "Notes" "Music" "Free")
+new_tag_names=("Net" "Terminal" "Social" "Notes" "Music" "Free")
+tag_keys=( {1..6} 0 )
 
 hc rename default "${tag_names[0]}" || true
 for i in ${!tag_names[@]} ; do
-    hc add "${tag_names[$i]}"
     # hc merge_tag "${tag_names[$i]}"
+    hc add "${new_tag_names[$i]}"
     key="${tag_keys[$i]}"
     if ! [ -z "$key" ] ; then
         hc keybind "$Mod-$key" use_index "$i"
