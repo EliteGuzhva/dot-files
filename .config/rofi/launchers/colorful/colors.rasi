@@ -2,8 +2,8 @@
 
 * {
   al:  #00000000;
-  bg:  #282828ff;
-  se:  #101010ff;
-  fg:  #FFFFFFff;
-  ac:  #7daea3ff;
+  bg:  #282828d0;
+  se:  #101010d0;
+  fg:  #FFFFFFd0;
+  ac:  #7daea3d0;
 }

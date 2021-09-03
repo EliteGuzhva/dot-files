@@ -8,7 +8,7 @@
  */
 
 configuration {
-	font:							"Iosevka Nerd Font 10";
+	font:							"Fira Code Nerd Font 10";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
     display-drun: 					"";
@@ -37,7 +37,7 @@ prompt {
 	padding: 						0.30% 1% 0% -0.5%;
 	background-color: 				@al;
 	text-color: 					@bg;
-	font:							"FantasqueSansMono Nerd Font 12";
+	font:							"Fira Code Nerd Font 12";
 }
 
 entry {
@@ -66,8 +66,8 @@ inputbar {
 listview {
     background-color:               @al;
     padding:                        10px;
-    columns:                        5;
-    lines:                          3;
+    columns:                        4;
+    lines:                          4;
     spacing:                        0%;
     cycle:                          false;
     dynamic:                        true;
@@ -97,7 +97,7 @@ element-icon {
     text-color:       				inherit;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
-    size:                           64px;
+    size:                           50px;
     border:                         0px;
 }
 

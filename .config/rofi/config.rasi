@@ -1,6 +1,7 @@
 /** Basic config file **/
 
 configuration {
+  terminal: "alacritty";
   show-icons:         true;
   icon-theme:         "Papirus";
   font: "Fira Code NF 12";
