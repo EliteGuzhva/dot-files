@@ -37,7 +37,7 @@ hc keybind Mod4-3 spawn ibus engine libpinyin
 
 hc keybind $Mod-Print spawn scrot -s -e 'mv $f ~/Pictures/Screenshots/'
 
-hc keybind $Mod-Shift-Return spawn rofi -show drun
+hc keybind $Mod-Shift-Return spawn ~/.config/rofi/bin/launcher_colorful
 
 hc keybind $Mod-Shift-b spawn feh --bg-scale --randomize /home/nikita/git_projects/wallpapers/*
 
