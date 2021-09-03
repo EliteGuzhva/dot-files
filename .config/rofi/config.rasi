@@ -1,0 +1,15 @@
+configuration {
+    theme: "/usr/local/share/rofi/themes/gruvbox-dark.rasi";
+    modi: "drun";
+    font: "Fira Code NF 12";
+    location: 0;
+    show-icons: true;
+	kb-remove-to-eol: "";
+	kb-remove-to-sol: "";
+	kb-remove-char-forward: "Delete";
+	kb-accept-entry: "Return,KP_Enter";
+    kb-row-down: "Control+j";
+    kb-row-up: "Control+k";
+	kb-page-prev: "Page_Up,Control+u";
+	kb-page-next: "Page_Down,Control+d";
+}
