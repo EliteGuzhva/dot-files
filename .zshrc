@@ -94,14 +94,23 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+SCRIPTS_HOME="$HOME/git_projects/scripts"
 CARGO_HOME="$HOME/.cargo"
+
+TOOLS="$HOME/tools"
+ANDROID_HOME="$TOOLS/Android_SDK"
+
 BREW_HOME="/opt/homebrew"
 LLVM_HOME="$BREW_HOME/opt/llvm"
 NODE_HOME="$BREW_HOME/opt/node@12"
+OPENJDK_HOME="$BREW_HOME/opt/openjdk@11"
 
+export PATH="$SCRIPTS_HOME:$PATH"
 export PATH="$CARGO_HOME/bin:$PATH"
 export PATH="$LLVM_HOME/bin:$PATH"
 export PATH="$NODE_HOME/bin:$PATH"
+export PATH="$OPENJDK_HOME/bin:$PATH"
+export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
 
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 
