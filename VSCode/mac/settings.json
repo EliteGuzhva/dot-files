@@ -2,7 +2,6 @@
     "cmake.configureOnOpen": false,
     "python.pythonPath": "/usr/local/bin/python3",
     "window.zoomLevel": 1,
-    "workbench.colorTheme": "Gruvbox Material Dark",
     "editor.cursorBlinking": "solid",
     "editor.minimap.enabled": false,
     "vim.leader": "<space>",
@@ -90,5 +89,7 @@
     "cmake.copyCompileCommands": "${workspaceFolder}",
     "cmake.configureOnEdit": false,
     "workbench.activityBar.visible": false,
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
+    "workbench.colorTheme": "Gruvbox Material Dark"
 }
