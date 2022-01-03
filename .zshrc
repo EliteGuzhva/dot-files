@@ -102,15 +102,17 @@ ANDROID_HOME="$TOOLS/Android_SDK"
 
 BREW_HOME="/opt/homebrew"
 LLVM_HOME="$BREW_HOME/opt/llvm"
-NODE_HOME="$BREW_HOME/opt/node@12"
+NODE_HOME="$BREW_HOME/opt/node@14"
 OPENJDK_HOME="$BREW_HOME/opt/openjdk@11"
+PYTHON_HOME="$BREW_HOME/opt/python@3.9"
 
 export PATH="$SCRIPTS_HOME:$PATH"
 export PATH="$CARGO_HOME/bin:$PATH"
-export PATH="$LLVM_HOME/bin:$PATH"
+# export PATH="$LLVM_HOME/bin:$PATH"
 export PATH="$NODE_HOME/bin:$PATH"
 export PATH="$OPENJDK_HOME/bin:$PATH"
 export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
+export PATH="$PYTHON_HOME/bin:$PATH"
 
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 
@@ -121,6 +123,7 @@ alias bi="brew install"
 alias allow_access="ngrok tcp --region=eu 22"
 alias hg="history | grep"
 alias prog_folder="cd ~/Yandex.Disk.localized/Data/Programming"
+alias uni_folder="cd ~/Yandex.Disk.localized/Data/Uni"
 alias emulator="/Users/eliteguzhva/Library/Android/sdk/emulator/emulator -avd Pixel_4_API_29i -netdelay none -netspeed full"
 alias tmux="tmux -2"
 alias uber_folder="cd ~/Library/Application\ Support/Übersicht/widgets/"
@@ -148,3 +151,4 @@ eval "$(starship init zsh)"
 if [ `machine` != arm64e ]; then
     exec arch -arm64 zsh
 fi
+
