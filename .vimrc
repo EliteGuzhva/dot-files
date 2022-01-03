@@ -13,13 +13,14 @@ set smartindent
 set number
 set relativenumber
 set splitbelow
+set mouse=a
 syntax on
 
 " guifont
 if has('mac')
-    set guifont=Menlo:h12
+    set guifont="MesloLGM NF":h12
 else
-    set guifont=FiraCode:h12
+    set guifont="FiraCode NF":h12
 endif
 
 " Backup and undo
@@ -107,6 +108,7 @@ Plug 'mhinz/vim-startify'
 Plug 'liuchengxu/vim-which-key'
 Plug 'voldikss/vim-floaterm'
 Plug 'tibabit/vim-templates'
+Plug 'jiangmiao/auto-pairs'
 
 " vcs
 Plug 'tpope/vim-fugitive'
@@ -168,6 +170,8 @@ let g:which_key_map['='] = [ ':wincmd =', 'balance windows' ]
 let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
       \ ';' : [':FloatermNew --wintype=popup --height=30'       , 'floating terminal'],
+      \ 'c' : [':FloatermNew ccmake . -B build'                 , 'ccmake'],
+      \ 'v' : [':FloatermNew vifm'                              , 'vifm'],
       \ 'g' : [':FloatermNew lazygit'                           , 'git'],
       \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
       \ 'h' : [':FloatermNew htop'                              , 'htop'],
