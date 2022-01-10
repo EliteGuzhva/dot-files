@@ -2,13 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/eliteguzhva/.oh-my-zsh"
+export ZSH="/Users/elit3guzhva/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="dracula"
+ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -94,23 +94,36 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-LLVM_HOME="/usr/local/opt/llvm"
-FLUTTER_HOME="/Users/eliteguzhva/Development/flutter"
+SCRIPTS_HOME="$HOME/git_projects/scripts"
+CARGO_HOME="$HOME/.cargo"
 
-export PATH="$LLVM_HOME/bin:/usr/local/opt/openjdk/bin:/usr/local/opt/opencv@3/bin:/usr/local/Cellar:$PATH"
-export PATH="$PATH:$FLUTTER_HOME/bin"
+TOOLS="$HOME/tools"
+ANDROID_HOME="$TOOLS/Android_SDK"
+
+BREW_HOME="/opt/homebrew"
+LLVM_HOME="$BREW_HOME/opt/llvm"
+NODE_HOME="$BREW_HOME/opt/node@14"
+OPENJDK_HOME="$BREW_HOME/opt/openjdk@11"
+PYTHON_HOME="$BREW_HOME/opt/python@3.9"
+
+export PATH="$SCRIPTS_HOME:$PATH"
+export PATH="$CARGO_HOME/bin:$PATH"
+# export PATH="$LLVM_HOME/bin:$PATH"
+export PATH="$NODE_HOME/bin:$PATH"
+export PATH="$OPENJDK_HOME/bin:$PATH"
+export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
+export PATH="$PYTHON_HOME/bin:$PATH"
 
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Aliases
+alias vim="nvim"
 alias bs="brew search"
 alias bi="brew install"
-alias bci="brew cask install"
 alias allow_access="ngrok tcp --region=eu 22"
 alias hg="history | grep"
 alias prog_folder="cd ~/Yandex.Disk.localized/Data/Programming"
+alias uni_folder="cd ~/Yandex.Disk.localized/Data/Uni"
 alias emulator="/Users/eliteguzhva/Library/Android/sdk/emulator/emulator -avd Pixel_4_API_29i -netdelay none -netspeed full"
 alias tmux="tmux -2"
 alias uber_folder="cd ~/Library/Application\ Support/Übersicht/widgets/"
@@ -133,3 +146,9 @@ export EDITOR='vim'
 bindkey -v
 
 eval "$(starship init zsh)"
+
+# Switch to an arm64e shell by default
+if [ `machine` != arm64e ]; then
+    exec arch -arm64 zsh
+fi
+

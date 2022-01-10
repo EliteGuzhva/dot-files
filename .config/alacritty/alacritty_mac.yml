@@ -45,9 +45,9 @@ window:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  padding:
-    x: 5
-    y: 5
+  # padding:
+  #   x: 5
+  #   y: 5
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -176,9 +176,7 @@ font:
 draw_bold_text_with_bright_colors: false
 
 import:
-  # - /Users/eliteguzhva/git_projects/alacritty-theme/themes/nord.yaml
-  - /Users/eliteguzhva/git_projects/alacritty-theme/themes/gruvbox_material.yml
-  # - /Users/eliteguzhva/git_projects/alacritty-theme/themes/ayu-light.yaml
+  - /Users/elit3guzhva/git_projects/alacritty-theme/themes/onedark.yaml
 
 # Colors (Tomorrow Night)
 #colors:

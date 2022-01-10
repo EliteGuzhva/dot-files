@@ -13,13 +13,14 @@ set smartindent
 set number
 set relativenumber
 set splitbelow
+set mouse=a
 syntax on
 
 " guifont
 if has('mac')
-    set guifont=Menlo:h12
+    set guifont="MesloLGM NF":h12
 else
-    set guifont=FiraCode:h12
+    set guifont="FiraCode NF":h12
 endif
 
 " Backup and undo
@@ -82,10 +83,15 @@ Plug 'arzg/vim-colors-xcode'
 Plug 'tomasiser/vim-code-dark'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'EliteGuzhva/gruvbox-material'
+Plug 'rmehri01/onenord.nvim', { 'branch': 'main' }
+Plug 'navarasu/onedark.nvim'
 
 " project tree viewer
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'preservim/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'romgrk/barbar.nvim'
 
 " status line
 Plug 'itchyny/lightline.vim'
@@ -107,6 +113,7 @@ Plug 'mhinz/vim-startify'
 Plug 'liuchengxu/vim-which-key'
 Plug 'voldikss/vim-floaterm'
 Plug 'tibabit/vim-templates'
+Plug 'jiangmiao/auto-pairs'
 
 " vcs
 Plug 'tpope/vim-fugitive'
@@ -127,8 +134,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'dart-lang/dart-vim-plugin'
 
 " icons
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'ryanoasis/vim-devicons'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 call plug#end()
 
@@ -168,6 +175,8 @@ let g:which_key_map['='] = [ ':wincmd =', 'balance windows' ]
 let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
       \ ';' : [':FloatermNew --wintype=popup --height=30'       , 'floating terminal'],
+      \ 'c' : [':FloatermNew ccmake . -B build'                 , 'ccmake'],
+      \ 'v' : [':FloatermNew vifm'                              , 'vifm'],
       \ 'g' : [':FloatermNew lazygit'                           , 'git'],
       \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
       \ 'h' : [':FloatermNew htop'                              , 'htop'],
@@ -219,9 +228,9 @@ set t_Co=256
 set background=dark
 
 set termguicolors
-let g:gruvbox_material_background = "medium"
-let g:gruvbox_material_transparent_background = 1
-colorscheme gruvbox-material
+" let g:gruvbox_material_background = "medium"
+" let g:gruvbox_material_transparent_background = 1
+colorscheme onedark
 
 highlight Visual cterm=reverse ctermbg=NONE
 
@@ -230,9 +239,7 @@ highlight Visual cterm=reverse ctermbg=NONE
 " custom options
 set laststatus=2
 set noshowmode
-let g:lightline = {
-    \ "colorscheme": "gruvbox_material",
-    \ }
+let g:lightline = {"colorscheme": "one"}
 
 " ==========================================================================
 " TreeSitter
@@ -319,7 +326,7 @@ nnoremap <leader>m :MaximizerToggle!<CR>
 let g:which_key_map['m'] = [ ':MaximizerToggle!', 'maximize window toggle' ]
 
 " helper function (go to window and maximize it)
-fun GotoWindow(id)
+fun! GotoWindow(id)
     call win_gotoid(a:id)
     MaximizerToggle
 endfun
@@ -382,23 +389,72 @@ let g:which_key_map.z = {
 let g:limelight_conceal_ctermfg = 'gray'
 
 " ==========================================================================
-" NERDTree
-" Open on enter
-autocmd VimEnter * NERDTreeFind | wincmd p
+" BarBar
+" keybindings
+let g:which_key_map.b = {
+      \ 'name' : '+buffer',
+      \ 'p' : [':BufferPrevious', 'previous'],
+      \ 'n' : [':BufferNext', 'next'],
+      \ 'c' : [':BufferClose', 'close'],
+      \ 's' : [':BufferPick', 'select'],
+      \ }
 
-" Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
+" functions
+function! OpenTree()
+lua <<EOF
+   require'bufferline.state'.set_offset(31, 'Project Tree')
+   require'nvim-tree'.find_file(true)
+EOF
+endfunction
+
+command! OpenTree call OpenTree()
+
+function! CloseTree()
+lua <<EOF
+   require'bufferline.state'.set_offset(0)
+   require'nvim-tree'.close()
+EOF
+endfunction
+
+command! CloseTree call CloseTree()
+
+" ==========================================================================
+" NvimTree
+" Open on enter
+" autocmd VimEnter * exec 'NvimTreeFindFile' | wincmd p
+autocmd VimEnter * exec 'OpenTree' | wincmd p
 
 " keybindings
 let g:which_key_map.p = {
       \ 'name' : '+project tree',
-      \ 't' : [':NERDTreeToggle', 'toggle'],
-      \ 'f' : [':NERDTreeFind', 'find current file in project tree'],
+      \ 't' : [':CloseTree', 'toggle'],
+      \ 'f' : [':OpenTree', 'find current file in project tree'],
       \ }
 
-" custom options
-let g:NERDTreeGitStatusUseNerdFonts = 1
+lua <<EOF
+require'nvim-tree'.setup {
+    auto_close = true,
+    open_on_tab = true
+}
+EOF
+
+" " NERDTree
+" " Open on enter
+" autocmd VimEnter * NERDTreeFind | wincmd p
+
+" " Exit Vim if NERDTree is the only window left.
+" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+"     \ quit | endif
+
+" " keybindings
+" let g:which_key_map.p = {
+"       \ 'name' : '+project tree',
+"       \ 't' : [':NERDTreeToggle', 'toggle'],
+"       \ 'f' : [':NERDTreeFind', 'find current file in project tree'],
+"       \ }
+
+" " custom options
+" let g:NERDTreeGitStatusUseNerdFonts = 1
 
 " ==========================================================================
 " Coc
