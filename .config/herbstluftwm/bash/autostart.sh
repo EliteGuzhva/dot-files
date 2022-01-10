@@ -30,6 +30,7 @@ hc keybind Mod4-s spawn skype
 hc keybind Mod4-t spawn telegram-desktop
 hc keybind Mod4-m spawn spotify
 hc keybind Mod4-i spawn clion
+hc keybind Mod4-c spawn code
 
 hc keybind Mod4-1 spawn ibus engine xkb:us::eng
 hc keybind Mod4-2 spawn ibus engine xkb:ru::rus

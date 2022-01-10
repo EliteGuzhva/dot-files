@@ -155,6 +155,7 @@ import:
   # - /home/nikita/git_projects/alacritty-theme/themes/nord.yaml
   # - /home/nikita/git_projects/alacritty-theme/themes/ayu-light.yaml
   - /home/nikita/git_projects/alacritty-theme/themes/gruvbox_material.yml
+  # - /home/nikita/git_projects/alacritty-theme/themes/gruvbox_light.yaml
 
 # Colors (Tomorrow Night)
 #colors:

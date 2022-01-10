@@ -239,7 +239,7 @@ let g:lightline = {
 " custom options
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "cpp", "cmake", "python", "json", "yaml", "bash", "cuda", "dockerfile", "dart", "go", "rust", "java", "kotlin" },
+  ensure_installed = { "cpp", "cmake", "python", "json", "yaml", "bash", "cuda", "dockerfile", "dart", "go", "rust", "toml", "vim" },
   highlight = {
     enable = true,
   },
@@ -350,6 +350,7 @@ let g:which_key_map.d = {
       \ 'c' : ['<Plug>VimspectorContinue', 'continue'],
       \ 'f' : ['<Plug>VimspectorRunToCursor', 'run to cursor (follow)'],
       \ 'b' : ['<Plug>VimspectorToggleBreakpoint', 'toggle breakpoint'],
+      \ 'o' : ['<Plug>VimspectorToggleConditionalBreakpoint', 'toggle conditional breakpoint'],
       \ 'n' : ['<Plug>VimspectorStepOver', 'step over (next)'],
       \ 'j' : ['<Plug>VimspectorStepInto', 'step into (down)'],
       \ 'k' : ['<Plug>VimspectorStepOut', 'step out (up)'],
@@ -417,6 +418,13 @@ function! s:show_documentation()
   endif
 endfunction
 
+function! s:switch_source_header()
+    let l:alter = CocRequest('clangd', 'textDocument/switchSourceHeader', {'uri': 'file://'.expand("%:p")})
+    " remove file:/// from response
+    let l:alter = substitute(l:alter, "file://", "", "")
+    execute 'edit ' . l:alter
+endfunction
+
 " use tab for completions
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -431,6 +439,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 
 " keybindings
 nnoremap <silent> <leader>gh :call <SID>show_documentation()<CR>
+nnoremap <silent> <leader>gs :call <SID>switch_source_header()<CR>
 let g:which_key_map.g = {
       \ 'name' : '+lsp',
       \ 'd' : ['<Plug>(coc-definition)', 'go to definition'],
@@ -445,5 +454,6 @@ let g:which_key_map.g = {
       \ 'c' : ['<Plug>(coc-format-selected)', 'format selected'],
       \ 'f' : [':CocFix', 'fix'],
       \ 'h' : 'show documentation (hover)',
+      \ 's' : 'switch source/header',
       \ }
 

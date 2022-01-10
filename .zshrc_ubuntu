@@ -6,6 +6,7 @@ export ZSH="/home/nikita/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME=""
+ZSH_DISABLE_COMPFIX=true
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -25,6 +26,9 @@ export EDITOR='vim'
 bindkey -v
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+
+# Custom env
+export MXNET_CUDNN_AUTOTUNE_DEFAULT=0
 
 # VERSIONS
 export CMAKE_VERSION="3.17.2"
@@ -46,6 +50,9 @@ export EMACS_HOME=$HOME/.emacs.d
 export CARGO_HOME=$HOME/.cargo
 export CMAKE_HOME=$TOOLS/CMake/$CMAKE_VERSION
 export QT_HOME=$TOOLS/QT/$QT_VERSION/$QT_VERSION/gcc_64
+export QT_PLUGIN_PATH=$QT_HOME/plugins
+export FLUTTER_HOME=$TOOLS/Flutter
+export ANDROID_SDK_HOME=$HOME/Android/Sdk
 
 export LIBTORCH_HOME=$TOOLS/LibTorch/$LIBTORCH_VERSION
 export TORCHVISION_HOME=$TOOLS/TorchVision/$TORCHVISION_VERSION
@@ -55,14 +62,14 @@ export TENSORRT_OSS_HOME=$GIT_PROJECTS/tensorrt-oss
 export TENSORRT_COGNITIVE_PLUGINS_HOME=$GIT_PROJECTS/tensorrt-cognitive-plugins
 
 # CPATH
-export CPATH=$CPATH:/usr/include/hdf5/serial
+export CPATH=/usr/include/hdf5/serial
 
 # LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib32/:/lib/x86_64-linux-gnu/:/usr/lib/x86_64-linux-gnu/hdf5/serial/:/usr/lib:/usr/local/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME/lib64
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ar13_so
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TENSORRT_OSS_HOME/install/lib:$TENSORRT_HOME/lib:$TENSORRT_COGNITIVE_PLUGINS_HOME/install/lib
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBTORCH_HOME/lib/:$TORCHVISION_HOME/install/lib/
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TENSORRT_OSS_HOME/install/lib:$TENSORRT_HOME/lib:$TENSORRT_COGNITIVE_PLUGINS_HOME/install/lib
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBTORCH_HOME/lib/:$TORCHVISION_HOME/install/lib/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QT_HOME/lib
 
 # PATH
@@ -76,6 +83,7 @@ export PATH=$PATH:$GOLANG_HOME/bin
 export PATH=$PATH:$EMACS_HOME/bin
 export PATH=$PATH:/opt/baidunetdisk
 export PATH=$PATH:$QT_HOME/bin
+export PATH=$PATH:$FLUTTER_HOME/bin
 
 # Theme
 export GTK_THEME="Adwaita:dark"
@@ -89,6 +97,7 @@ alias baidu_disk='baidunetdisk & disown'
 alias prog_folder='cd /data/disk/Data/Programming'
 alias svn_fix='sudo ip route add 192.168.1.93/32 via 192.168.220.13'
 alias gitlab_fix='sudo ip route add 192.168.1.92/32 via 192.168.220.12'
+alias emulator="$ANDROID_SDK_HOME/emulator/emulator -avd Pixel_3a_API_30_x86 -netdelay none -netspeed full"
 
 # svn
 svndiff() {
