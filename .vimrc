@@ -230,6 +230,7 @@ set background=dark
 set termguicolors
 " let g:gruvbox_material_background = "medium"
 " let g:gruvbox_material_transparent_background = 1
+let g:onedark_config = {'toggle_style_key': '<leader>wc'}
 colorscheme onedark
 
 highlight Visual cterm=reverse ctermbg=NONE
