@@ -164,7 +164,7 @@ hc attr theme.normal.color '#282c34'
 hc attr theme.urgent.color '#e86671'
 hc attr theme.inner_width 0
 hc attr theme.inner_color black
-hc attr theme.border_width 0
+hc attr theme.border_width 2
 hc attr theme.floating.border_width 0
 hc attr theme.floating.outer_width 0
 hc attr theme.floating.outer_color black
