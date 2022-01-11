@@ -149,8 +149,8 @@ hc keybind $Mod-i jumpto urgent
 # theme
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
-hc set frame_border_active_color '#81a1c1'
-hc set frame_border_normal_color '#2e3440'
+hc set frame_border_active_color '#61afef'
+hc set frame_border_normal_color '#282c34'
 hc set frame_bg_normal_color '#565656'
 hc set frame_bg_active_color '#345F0C'
 hc set frame_border_width 0
@@ -159,14 +159,14 @@ hc set frame_bg_transparent 1
 hc set frame_transparent_width 0
 hc set frame_gap 0
 
-hc attr theme.active.color '#81a1c1' # '#9fbc00'
-hc attr theme.normal.color '#2e3440'
-hc attr theme.urgent.color '#bf616a'
-hc attr theme.inner_width 1
+hc attr theme.active.color '#61afef' # '#9fbc00'
+hc attr theme.normal.color '#282c34'
+hc attr theme.urgent.color '#e86671'
+hc attr theme.inner_width 0
 hc attr theme.inner_color black
-hc attr theme.border_width 3
-hc attr theme.floating.border_width 4
-hc attr theme.floating.outer_width 1
+hc attr theme.border_width 0
+hc attr theme.floating.border_width 0
+hc attr theme.floating.outer_width 0
 hc attr theme.floating.outer_color black
 hc attr theme.active.inner_color '#3E4A00'
 hc attr theme.active.outer_color '#3E4A00'
