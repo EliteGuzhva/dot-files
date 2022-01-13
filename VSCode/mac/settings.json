@@ -478,7 +478,7 @@
     "workbench.activityBar.visible": false,
     "security.workspace.trust.untrustedFiles": "open",
     "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
-    "workbench.colorTheme": "Gruvbox Material Dark",
+    "workbench.colorTheme": "One Dark Pro",
     "markdown-preview-enhanced.pandocArguments": [
         "--to=beamer"
     ],
