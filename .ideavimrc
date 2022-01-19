@@ -71,9 +71,11 @@ map <leader>rt <Action>(CIDR.Lang.IntroduceTypedef)
 map <leader>pf :NERDTreeFind<CR>
 map <leader>pt :NERDTreeToggle<CR>
 
-map <leader>vs <Action>(ActivateVersionControlToolWindow)
+map <leader>vd <Action>(Compare.SameVersion)
+map <leader>vl <Action>(ActivateVersionControlToolWindow)
+map <leader>vs <Action>(ActivateCommitToolWindow)
 
 map <leader>t; <Action>(ActivateTerminalToolWindow)
 map <leader>ts <Action>(ActivateTerminalToolWindow)
-map <leader>tg <Action>(ActivateVersionControlToolWindow)
+map <leader>tg <Action>(ActivateCommitToolWindow)
 map <leader>tc <Action>(ActivateCMakeToolWindow)
