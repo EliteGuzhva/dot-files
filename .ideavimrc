@@ -1,0 +1,79 @@
+let mapleader=" "
+
+set surround
+set commentary
+set NERDTree
+
+set number
+set relativenumber
+set matchpairs
+
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+map r <C-r>
+map <leader>q :q<CR>
+map <leader>x :xa<CR>
+map <leader>h <C-w>h
+map <leader>j <C-w>j
+map <leader>k <C-w>k
+map <leader>l <C-w>l
+
+map <leader>bn gt
+map <leader>bp gT
+map <leader>bc :q<CR>
+
+map <leader>so <Action>(IdeaVim.ReloadVimRc.reload)
+
+map <leader>zf <Action>(ToggleDistractionFreeMode)
+
+map <leader>ff <Action>(GotoFile)
+map <leader>fs <Action>(FindInPath)
+map <leader>fl <Action>(FindInPath)
+
+map <leader>cx <Action>(Clean)
+map <leader>cc <Action>(CMake.ReloadCMakeProject)
+map <leader>cb <Action>(Build)
+map <leader>cr <Action>(Run)
+map <leader>c; <Action>(Run)
+map <leader>cp <Action>(Conan.Install)
+
+map <leader>dd <Action>(Debug)
+map <leader>ds <Action>(Stop)
+map <leader>de <Action>(Stop)
+map <leader>dr <Action>(Rerun)
+map <leader>db <Action>(ToggleLineBreakpoint)
+map <leader>dn <Action>(StepOver)
+map <leader>dj <Action>(StepInto)
+map <leader>dk <Action>(StepOut)
+map <leader>df <Action>(RunToCursor)
+map <leader>dc <Action>(Resume)
+map <leader>di <Action>(QuickEvaluateExpression)
+
+map <leader>gh <Action>(QuickJavaDoc)
+map <leader>gf <Action>(ShowIntentionActions)
+map <leader>gd <Action>(GotoDeclaration)
+map <leader>gi <Action>(GotoImplementation)
+map <leader>gr <Action>(FindUsages)
+map <leader>gj <Action>(GotoNextError)
+map <leader>gk <Action>(GotoPreviousError)
+map <leader>gs <Action>(CIDR.Lang.SwitchHeaderSource)
+map <leader>gc <Action>(ReformatCode)
+
+map <leader>rr <Action>(RenameElement)
+map <leader>re <Action>(ExtractMethod)
+map <leader>rm <Action>(Move)
+map <leader>rv <Action>(CIDR.Lang.IntroduceVariable)
+map <leader>rc <Action>(CIDR.Lang.IntroduceConstant)
+map <leader>rt <Action>(CIDR.Lang.IntroduceTypedef)
+
+map <leader>pf :NERDTreeFind<CR>
+map <leader>pt :NERDTreeToggle<CR>
+
+map <leader>vs <Action>(ActivateVersionControlToolWindow)
+
+map <leader>t; <Action>(ActivateTerminalToolWindow)
+map <leader>ts <Action>(ActivateTerminalToolWindow)
+map <leader>tg <Action>(ActivateVersionControlToolWindow)
+map <leader>tc <Action>(ActivateCMakeToolWindow)
