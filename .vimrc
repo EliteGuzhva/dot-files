@@ -85,6 +85,7 @@ Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'EliteGuzhva/gruvbox-material'
 Plug 'rmehri01/onenord.nvim', { 'branch': 'main' }
 Plug 'navarasu/onedark.nvim'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 " project tree viewer
 " Plug 'preservim/nerdtree'
@@ -226,11 +227,15 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set t_Co=256
 set background=dark
-
 set termguicolors
+
 " let g:gruvbox_material_background = "medium"
 " let g:gruvbox_material_transparent_background = 1
+
 let g:onedark_config = {'toggle_style_key': '<leader>wc'}
+
+" lua require("catppuccin").setup({})
+
 colorscheme onedark
 
 highlight Visual cterm=reverse ctermbg=NONE

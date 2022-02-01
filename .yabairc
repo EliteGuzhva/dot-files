@@ -58,6 +58,7 @@ yabai -m space 6 --label Free
 yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Docker$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Spark$" sticky=on layer=above manage=off
+yabai -m rule --add app="VPN" sticky=on layer=above manage=off
 
 # Simple Bar
 # Refresh spaces widget on space change

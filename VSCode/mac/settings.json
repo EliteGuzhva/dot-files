@@ -478,7 +478,6 @@
     "workbench.activityBar.visible": false,
     "security.workspace.trust.untrustedFiles": "open",
     "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
-    "workbench.colorTheme": "One Dark Pro",
     "markdown-preview-enhanced.pandocArguments": [
         "--to=beamer"
     ],
@@ -497,5 +496,6 @@
     "window.menuBarVisibility": "toggle",
     "jupyter.jupyterServerType": "local",
     "git.confirmSync": false,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "workbench.colorTheme": "One Dark Pro"
 }
