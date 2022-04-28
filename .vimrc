@@ -29,7 +29,7 @@ set t_Co=256
 set termguicolors
 colorscheme desert
 
-highlight EndOfBuffer ctermfg=black ctermbg=black
+highlight EndOfBuffer ctermfg=None ctermbg=None
 
 let g:netrw_banner=0
 let g:netrw_browse_split=4
