@@ -1,7 +1,6 @@
 {
     "cmake.configureOnOpen": false,
     "python.pythonPath": "/usr/local/bin/python3",
-    "window.zoomLevel": 0,
     "editor.cursorBlinking": "solid",
     "editor.minimap.enabled": false,
     "vim.leader": "<space>",
@@ -425,7 +424,33 @@
             "commands": [
                 "editor.action.commentLine"
             ]
-        }
+        },
+        {
+            "before": [
+                "J"
+            ],
+            "after": [
+                "g",
+                "T"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "after": [
+                "g",
+                "t"
+            ]
+        },
+        {
+            "before": [
+                "W"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -478,7 +503,6 @@
     "workbench.activityBar.visible": false,
     "security.workspace.trust.untrustedFiles": "open",
     "python.defaultInterpreterPath": "/usr/bin/python3",
-    "workbench.colorTheme": "Gruvbox Material Dark",
     "markdown-preview-enhanced.pandocArguments": [
         "--to=beamer"
     ],
@@ -494,8 +518,11 @@
     ],
     "C_Cpp.intelliSenseEngine": "Disabled",
     "clangd.onConfigChanged": "restart",
-    "window.menuBarVisibility": "toggle",
     "jupyter.jupyterServerType": "local",
     "git.confirmSync": false,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+    "rust-client.disableRustup": true,
+    "window.menuBarVisibility": "toggle"
 }
