@@ -78,6 +78,11 @@
 
 # run apps
 cmd - return : open -a /Applications/Alacritty.app
+shift + alt - f : open -a finder
+shift + alt - s : open -a safari
+
+# restart yabai
+shift + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
 # focus window
 cmd - h : yabai -m window --focus west
@@ -85,20 +90,27 @@ cmd - j : yabai -m window --focus south
 cmd - k : yabai -m window --focus north
 cmd - l : yabai -m window --focus east
 
-# swap managed window
-# shift + alt - h : yabai -m window --swap north
+# move window
+shift + cmd - h : yabai -m window --swap west
+shift + cmd - j : yabai -m window --swap south
+shift + cmd - k : yabai -m window --swap north
+shift + cmd - l : yabai -m window --swap east
 
-# move managed window
-# shift + cmd - h : yabai -m window --warp east
+# change window size
+ctrl + cmd - 0 : yabai -m space --balance
+ctrl + cmd - h : yabai -m window --resize left:-20:0
+ctrl + cmd - l : yabai -m window --resize left:20:0
 
-# balance size of windows
-# shift + alt - 0 : yabai -m space --balance
+# toggle window zoom
+alt - f : yabai -m window --toggle zoom-fullscreen
+ctrl + cmd - f : yabai -m window --toggle native-fullscreen
 
-# make floating window fill screen
-# shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
+# toggle window split type
+cmd - space : yabai -m window --toggle split
 
-# make floating window fill left-half of screen
-# shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
+# float / unfloat window and center on screen
+shift + cmd - f : yabai -m window --toggle float;\
+                  yabai -m window --grid 10:10:1:1:8:8
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
 shift + cmd - n : yabai -m space --create && \
@@ -136,41 +148,3 @@ shift + alt - 7 : yabai -m window --space  7; yabai -m space --focus 7
 shift + alt - 8 : yabai -m window --space  8; yabai -m space --focus 8
 shift + alt - 9 : yabai -m window --space  9; yabai -m space --focus 9
 
-# focus monitor
-# ctrl + alt - z  : yabai -m display --focus prev
-# ctrl + alt - 3  : yabai -m display --focus 3
-
-# send window to monitor and follow focus
-# ctrl + cmd - c  : yabai -m window --display next; yabai -m display --focus next
-# ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
-
-# move floating window
-# shift + ctrl - a : yabai -m window --move rel:-20:0
-# shift + ctrl - s : yabai -m window --move rel:0:20
-
-# increase window size
-# shift + alt - a : yabai -m window --resize left:-20:0
-# shift + alt - w : yabai -m window --resize top:0:-20
-
-# decrease window size
-# shift + cmd - s : yabai -m window --resize bottom:0:-20
-# shift + cmd - w : yabai -m window --resize top:0:20
-
-# set insertion point in focused container
-# ctrl + alt - h : yabai -m window --insert west
-
-# toggle window zoom
-# alt - d : yabai -m window --toggle zoom-parent
-# shift + alt - f : yabai -m window --toggle zoom-fullscreen
-
-# toggle window split type
-cmd - e : yabai -m window --toggle split
-
-# float / unfloat window and center on screen
-shift + alt - f : yabai -m window --toggle float;\
-                  yabai -m window --grid 4:4:1:1:2:2
-
-# toggle sticky(+float), topmost, picture-in-picture
-# alt - p : yabai -m window --toggle sticky;\
-#           yabai -m window --toggle topmost;\
-#           yabai -m window --toggle pip
