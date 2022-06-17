@@ -91,6 +91,7 @@ LLVM_HOME="$BREW_HOME/opt/llvm"
 NODE_HOME="$BREW_HOME/opt/node@14"
 OPENJDK_HOME="$BREW_HOME/opt/openjdk@11"
 PYTHON_HOME="$BREW_HOME/opt/python@3.9"
+GCC_HOME="$BREW_HOME/opt/gcc"
 
 export PATH="$SCRIPTS_HOME:$PATH"
 export PATH="$CARGO_HOME/bin:$PATH"
@@ -99,6 +100,7 @@ export PATH="$NODE_HOME/bin:$PATH"
 export PATH="$OPENJDK_HOME/bin:$PATH"
 export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
 export PATH="$PYTHON_HOME/bin:$PATH"
+# export PATH="$GCC_HOME/bin:$PATH"
 
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 
