@@ -76,6 +76,38 @@
 # A REFERENCE ONLY, WHEN MAKING YOUR OWN CONFIGURATION..          #
 # ############################################################### #
 
+# remapping
+# normal
+alt - h : skhd -k "left"
+alt - j : skhd -k "down"
+alt - k : skhd -k "up"
+alt - l : skhd -k "right"
+alt - b : skhd -k "alt - left"
+alt - w : skhd -k "alt - right"
+alt - u : skhd -k "cmd - z"
+alt - r : skhd -k "cmd - y"
+alt - y : skhd -k "cmd - c"
+alt - p : skhd -k "cmd - v"
+alt - c : skhd -k "cmd - x"
+alt - d : skhd -k "ctrl - k"
+alt - o : skhd -k "return"
+alt + ctrl - u : skhd -k "pageup"
+alt + ctrl - d : skhd -k "pagedown"
+alt - 0 : skhd -k "ctrl - a"
+alt - 4 : skhd -k "ctrl - e"
+alt - g : skhd -k "cmd - up"
+alt + shift - g : skhd -k "cmd - down"
+alt - s : skhd -k "delete"
+alt - x : skhd -k "delete"
+alt + shift - x : skhd -k "backspace"
+# visual
+shift + alt - h : skhd -k "shift - left"
+shift + alt - j : skhd -k "shift - down"
+shift + alt - k : skhd -k "shift - up"
+shift + alt - l : skhd -k "shift - right"
+shift + alt - b : skhd -k "shift + alt - left"
+shift + alt - w : skhd -k "shift + alt - right"
+
 # run apps
 cmd - return : open -a /Applications/Alacritty.app
 shift + alt - f : open -a finder
