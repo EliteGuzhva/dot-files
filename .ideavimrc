@@ -22,6 +22,8 @@ map <leader>l <C-w>l
 
 map K gt
 map J gT
+map H :tabm -1<CR>
+map L :tabm +1<CR>
 map W :q<CR>
 
 map <leader>so <Action>(IdeaVim.ReloadVimRc.reload)
@@ -72,8 +74,9 @@ map <leader>pf :NERDTreeFind<CR>
 map <leader>pt :NERDTreeToggle<CR>
 
 map <leader>vd <Action>(Compare.SameVersion)
-map <leader>vl <Action>(ActivateVersionControlToolWindow)
+map <leader>vl <Action>(Vcs.ShowTabbedFileHistory)
 map <leader>vs <Action>(ActivateCommitToolWindow)
+map <leader>vb <Action>(Annotate)
 
 map <leader>t; <Action>(ActivateTerminalToolWindow)
 map <leader>ts <Action>(ActivateTerminalToolWindow)
