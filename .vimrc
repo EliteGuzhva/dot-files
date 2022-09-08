@@ -75,6 +75,7 @@ nmap <leader>h <C-w>h
 nmap <leader>j <C-w>j
 nmap <leader>k <C-w>k
 nmap <leader>l <C-w>l
+nmap <leader>x :wqa<CR>
 
 nmap J gT
 nmap K gt
