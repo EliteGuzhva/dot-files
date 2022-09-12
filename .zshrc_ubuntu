@@ -48,7 +48,7 @@ export SCRIPTS=$HOME/Documents/Scripts
 export APPIMAGES=$HOME/appimages
 
 export CUDA_HOME=/usr/local/cuda 
-export GOLANG_HOME=/usr/local/go
+export GOLANG_HOME=$TOOLS/GoLang
 export EMACS_HOME=$HOME/.emacs.d
 export CARGO_HOME=$HOME/.cargo
 export CMAKE_HOME=$TOOLS/CMake/$CMAKE_VERSION
@@ -71,7 +71,6 @@ export CPATH=/usr/include/hdf5/serial
 # LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib32/:/lib/x86_64-linux-gnu/:/usr/lib/x86_64-linux-gnu/hdf5/serial/:/usr/lib:/usr/local/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME/lib64
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ar13_so
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TENSORRT_OSS_HOME/install/lib:$TENSORRT_HOME/lib:$TENSORRT_COGNITIVE_PLUGINS_HOME/install/lib
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBTORCH_HOME/lib/:$TORCHVISION_HOME/install/lib/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QT_HOME/lib
@@ -103,6 +102,8 @@ alias prog_folder='cd /data/disk/Data/Programming'
 alias svn_fix='sudo ip route add 192.168.1.93/32 via 192.168.220.13'
 alias gitlab_fix='sudo ip route add 192.168.1.92/32 via 192.168.220.12'
 alias emulator="$ANDROID_SDK_HOME/emulator/emulator -avd Pixel_3a_API_30_x86 -netdelay none -netspeed full"
+alias nvid="neovide --multigrid"
+alias nvid_remote="nvid --remote-tcp=localhost:1337"
 
 # svn
 svndiff() {
