@@ -37,6 +37,8 @@ let g:netrw_alto=1
 let g:netrw_altv=1
 let g:netrw_liststyle=3
 
+let mapleader = "\<space>"
+
 function! SmartTabComplete()
     let line = getline('.')
     let substr = strpart(line, -1, col('.') + 1)
@@ -63,10 +65,26 @@ endfunction
 
 inoremap <tab> <c-r>=SmartTabComplete()<CR>
 
+tnoremap <Esc> <C-\><C-n>
+
 map <C-b> :20Lex<CR>:wincmd p<CR>
 map <C-p> :find<space>
 map <C-\> :terminal<CR>
 
-tnoremap <Esc> <C-\><C-n>
+nmap <leader>h <C-w>h
+nmap <leader>j <C-w>j
+nmap <leader>k <C-w>k
+nmap <leader>l <C-w>l
+nmap <leader>x :wqa<CR>
+
+nmap J gT
+nmap K gt
+nmap W :q<CR>
+
+nmap <leader>pf :20Lex<CR>
+nmap <leader>pt <C-b>
+nmap <leader>ff <C-p>
+nmap <leader>t; <C-\>
+nmap <leader>ts <C-\>
 
 command! MakeTags !ctags -R .
