@@ -21,13 +21,11 @@ set smartindent
 set splitbelow
 set splitright
 
-set omnifunc=syntaxcomplete#Complete
-
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set t_Co=256
 set termguicolors
-colorscheme desert
+colorscheme slate
 
 highlight EndOfBuffer ctermfg=None ctermbg=None
 
@@ -66,25 +64,35 @@ endfunction
 inoremap <tab> <c-r>=SmartTabComplete()<CR>
 
 tnoremap <Esc> <C-\><C-n>
+tnoremap <C-h> <C-w>h
+tnoremap <C-j> <C-w>j
+tnoremap <C-k> <C-w>k
+tnoremap <C-l> <C-w>l
 
 map <C-b> :20Lex<CR>:wincmd p<CR>
 map <C-p> :find<space>
 map <C-\> :terminal<CR>
+
+nmap J gT
+nmap K gt
+nmap W :q<CR>
 
 nmap <leader>h <C-w>h
 nmap <leader>j <C-w>j
 nmap <leader>k <C-w>k
 nmap <leader>l <C-w>l
 nmap <leader>x :wqa<CR>
-
-nmap J gT
-nmap K gt
-nmap W :q<CR>
+nmap <leader>q :q<CR>
 
 nmap <leader>pf :20Lex<CR>
 nmap <leader>pt <C-b>
 nmap <leader>ff <C-p>
+nmap <leader>fl /
 nmap <leader>t; <C-\>
 nmap <leader>ts <C-\>
 
+nmap <leader>gd <C-]>
+nmap <leader>gr g<C-]>
+
 command! MakeTags !ctags -R .
+command! LspRestart !ctags -R .
