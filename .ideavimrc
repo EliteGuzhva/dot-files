@@ -62,6 +62,7 @@ map <leader>gj <Action>(GotoNextError)
 map <leader>gk <Action>(GotoPreviousError)
 map <leader>gs <Action>(CIDR.Lang.SwitchHeaderSource)
 map <leader>gc <Action>(ReformatCode)
+map <leader>gn <Action>(RenameElement)
 
 map <leader>rr <Action>(RenameElement)
 map <leader>re <Action>(ExtractMethod)
