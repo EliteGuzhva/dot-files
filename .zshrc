@@ -117,12 +117,15 @@ alias tmux="tmux -2"
 alias uber_folder="cd ~/Library/Application\ Support/Übersicht/widgets/"
 alias ls='exa'
 alias nvid="neovide --multigrid"
+alias nvid_remote="neovide --multigrid --remote-tcp=localhost:1337"
 
 alias connect_vpn="sudo openvpn --config ~/Documents/Robots_NikitaGuzhva_ctvpn.ovpn & disown"
 alias rbt_fix='sudo route add -net 192.168.0.64/32 192.168.220.14'
 alias ftp_fix='sudo route add -net 192.168.0.168/32 192.168.220.18'
 alias svn_fix='sudo route add -net 192.168.1.93/32 192.168.220.13'
 alias gitlab_fix='sudo route add -net 192.168.1.92/32 192.168.220.12'
+
+alias ezmix='arch -x86_64 /Applications/Toontrack/EZmix.app/Contents/MacOS/EZmix'
 
 gitdiff() {
     git diff --name-only --diff-filter=d | xargs bat --diff

@@ -55,7 +55,7 @@ yabai -m space 5 --label Misc
 yabai -m space 6 --label Free
 
 # rules
-yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
+yabai -m rule --add app="^System Settings$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Docker$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Spark$" sticky=on layer=above manage=off
 yabai -m rule --add app="VPN" sticky=on layer=above manage=off
