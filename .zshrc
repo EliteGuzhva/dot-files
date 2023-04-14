@@ -84,7 +84,8 @@ SCRIPTS_HOME="$HOME/git_projects/scripts"
 CARGO_HOME="$HOME/.cargo"
 
 TOOLS="$HOME/tools"
-ANDROID_HOME="$TOOLS/Android_SDK"
+ANDROID_HOME="$HOME/Library/Android/sdk"
+ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 
 BREW_HOME="/opt/homebrew"
 LLVM_HOME="$BREW_HOME/opt/llvm"
@@ -92,17 +93,21 @@ NODE_HOME="$BREW_HOME/opt/node@14"
 OPENJDK_HOME="$BREW_HOME/opt/openjdk@11"
 PYTHON_HOME="$BREW_HOME/opt/python@3.9"
 GCC_HOME="$BREW_HOME/opt/gcc"
+TAGLIB_HOME="$BREW_HOME/opt/taglib"
 
 export PATH="$SCRIPTS_HOME:$PATH"
 export PATH="$CARGO_HOME/bin:$PATH"
 # export PATH="$LLVM_HOME/bin:$PATH"
 export PATH="$NODE_HOME/bin:$PATH"
 export PATH="$OPENJDK_HOME/bin:$PATH"
-export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
+export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
 export PATH="$PYTHON_HOME/bin:$PATH"
 # export PATH="$GCC_HOME/bin:$PATH"
 
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib:/opt/homebrew/opt/taglib/lib"
+export LIBRARY_PATH="$TAGLIB_HOME/lib:$LIBRARY_PATH"
+
+export CPATH="$CPATH:/opt/homebrew/include"
 
 # Aliases
 alias vim="nvim"
@@ -112,7 +117,7 @@ alias allow_access="ngrok tcp --region=eu 22"
 alias hg="history | grep"
 alias prog_folder="cd ~/Yandex.Disk.localized/Data/Programming"
 alias uni_folder="cd ~/Yandex.Disk.localized/Data/Uni"
-alias emulator="/Users/eliteguzhva/Library/Android/sdk/emulator/emulator -avd Pixel_4_API_29i -netdelay none -netspeed full"
+alias emulator="$ANDROID_HOME/tools/emulator -avd Pixel_3a_API_32_arm64-v8a -netdelay none -netspeed full"
 alias tmux="tmux -2"
 alias uber_folder="cd ~/Library/Application\ Support/Übersicht/widgets/"
 alias ls='exa'
@@ -126,6 +131,8 @@ alias svn_fix='sudo route add -net 192.168.1.93/32 192.168.220.13'
 alias gitlab_fix='sudo route add -net 192.168.1.92/32 192.168.220.12'
 
 alias ezmix='arch -x86_64 /Applications/Toontrack/EZmix.app/Contents/MacOS/EZmix'
+alias garageband='arch -x86_64 /Applications/GarageBand.app/Contents/MacOS/GarageBand'
+alias logic='arch -x86_64 /Applications/Logic\ Pro\ X.app/Contents/MacOS/Logic\ Pro\ X'
 
 gitdiff() {
     git diff --name-only --diff-filter=d | xargs bat --diff
@@ -134,6 +141,8 @@ gitdiff() {
 alias gd='gitdiff'
 
 export BAT_THEME="Nord"
+
+export PYTORCH_ENABLE_MPS_FALLBACK=1
 
 export EDITOR='vim'
 bindkey -v

@@ -110,6 +110,7 @@
 
 # run apps
 alt - return : open -a /Applications/Alacritty.app
+alt - w : open -a /Applications/Warp.app
 
 # restart yabai
 shift + alt - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
