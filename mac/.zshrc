@@ -144,9 +144,6 @@ export BAT_THEME="Nord"
 
 export PYTORCH_ENABLE_MPS_FALLBACK=1
 
-export EDITOR='vim'
-bindkey -v
-
 eval "$(starship init zsh)"
 
 # Switch to an arm64e shell by default
