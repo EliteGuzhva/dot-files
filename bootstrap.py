@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import os
+import shutil
 import platform
 from typing import Tuple
 
@@ -28,6 +29,15 @@ def get_src_dst(root: str, user_root: str, name: str) -> Tuple[str, str]:
     return src, dst
 
 
+def remove(f: str):
+    if os.path.islink(f):
+        os.unlink(f)
+    elif os.path.isfile(f):
+        os.remove(f)
+    elif os.path.isdir(f):
+        shutil.rmtree(f)
+
+
 def symlink(src: str, dst: str, dry_run: bool = False):
     print(f"Symlinking '{src}' -> '{dst}'")
 
@@ -38,7 +48,7 @@ def symlink(src: str, dst: str, dry_run: bool = False):
         os.symlink(src, dst)
     except FileExistsError:
         try:
-            os.remove(dst)
+            remove(dst)
             os.symlink(src, dst)
         except PermissionError as e:
             print(f"Symlink failed with message: {e}")
