@@ -64,7 +64,7 @@ set norunexec
 
 " List of color schemes to try (picks the first one supported by the terminal)
 
-colorscheme Default-256 Default
+colorscheme dwmlight Default-256 Default
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
@@ -131,13 +131,16 @@ mark h ~/
 " %D the other window directory name.
 " %m run the command in a menu window
 
+command! lg lazygit
 command! ff find %d -name "%a" %m
 command! tc tmux new-window
 command! du du -hs * %d %m
 command! df df -h %m 2> /dev/null
 command! diff vim -d %f %F
 command! zip zip -r %f.zip %f
-command! tar tar czf %f.tar.gz %f
+command! unzip unzip %f
+command! tar tar czvf %f.tar.gz %f
+command! untar tar xvf %f
 command! run !! ./%f
 command! make !!make %a
 command! mkcd :mkdir %a | cd %a
