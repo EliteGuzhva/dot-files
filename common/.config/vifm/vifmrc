@@ -177,28 +177,18 @@ command! reload :write | restart full
 " program.
 
 " Pdf
-filetype {*.pdf},<application/pdf>
-       \ {Open in Preview}
-       \ open -a Preview.app,
-       \ {Open in Skim}
-       \ open -a Skim.app,
+filetype {*.pdf},<application/pdf> open
 fileviewer {*.pdf},<application/pdf> pdftotext -nopgbrk %c -
 
 " PostScript
-filetype {*.ps,*.eps,*.ps.gz},<application/postscript> open -a Preview.app
+filetype {*.ps,*.eps,*.ps.gz},<application/postscript> open
 
 " Djvu
-filetype {*.djvu},<image/vnd.djvu> open -a MacDjView.app
+filetype {*.djvu},<image/vnd.djvu> open
 
 " Audio
 filetype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus},
-        \<audio/*>
-       \ {Play using MPlayerX}
-       \ open -a MPlayerX.app,
-       \ {Open in iTunes}
-       \ open -a iTunes.app,
-       \ {Open in QuickTime Player}
-       \ open -a QuickTime\ Player.app,
+        \<audio/*> open
 fileviewer *.mp3 mp3info
 fileviewer *.flac soxi
 
@@ -206,13 +196,7 @@ fileviewer *.flac soxi
 filetype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
          \*.as[fx]},
-        \<video/*>
-       \ {Open in VLC}
-       \ open -a VLC.app,
-       \ {Open in QuickTime Player}
-       \ open -a QuickTime\ Player.app,
-       \ {Open in MPlayerX}
-       \ open -a MPlayerX.app,
+        \<video/*> open
 fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
            \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
            \*.as[fx]},
@@ -221,12 +205,8 @@ fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 
 " Web
 filetype {*.html,*.htm},<text/html>
-       \ {Open in Safari}
-       \ open -a Safari.app,
-       \ {Open in Firefox}
-       \ open -a Firefox.app,
-       \ {Open in Chrome}
-       \ open -a Google\ Chrome.app,
+       \ {Open in Browser}
+       \ open,
        \ {Open in vim}
        \ vim,
 fileviewer {*.html,*.htm},<text/html> w3m -dump -T text/html
@@ -240,7 +220,7 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " Image
 filetype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-       \ open -a Preview.app,
+       \ open,
 fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
          \ identify %f
 
@@ -265,7 +245,7 @@ filetype *.sha512
        \ sha512sum -c %f %S,
 
 " Torrent
-filetype {*.torrent},<application/x-bittorrent> open -a Transmission.app
+filetype {*.torrent},<application/x-bittorrent> open
 fileviewer {*.torrent},<application/x-bittorrent> dumptorrent -v %c
 
 " Extract zip files
@@ -300,7 +280,7 @@ filetype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
          \<application/vnd.openxmlformats-officedocument.*,
           \application/msword,
           \application/vnd.ms-excel>
-       \ open -a LibreOffice.app
+       \ open
 fileviewer {*.doc},<application/msword> antiword -
 fileviewer {*.docx},
           \<application/

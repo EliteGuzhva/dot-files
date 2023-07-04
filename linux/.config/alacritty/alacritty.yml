@@ -90,17 +90,17 @@ window:
 font:
   # Normal (roman) font face
   normal:
-    family: FiraCode NF
+    family: JetBrainsMonoNerdFont
     style: Regular
 
   # Bold font face
   bold:
-    family: FiraCode NF
+    family: JetBrainsMonoNerdFont
     style: Bold
 
   # Italic font face
   italic:
-    family: FiraCode NF
+    family: JetBrainsMonoNerdFont
     style: Italic
     # Bold italic font face
     #bold_italic:
